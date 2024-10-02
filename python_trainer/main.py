@@ -6,6 +6,17 @@ from python_trainer.prompt_generator import generate_prompt, generate_task_promp
 from python_trainer.openai_utils import get_training_plan
 from python_trainer.utils.file_utils import save_training_plan
 
+def format_training_plan(training_plan):
+    formatted = "# Python Training Plan\n\n"
+    for i, milestone in enumerate(training_plan.milestones, 1):
+        formatted += f"## Milestone {i}: {milestone.name}\n\n"
+        formatted += f"**Objective:** {milestone.objective}\n\n"
+        formatted += "**Topics:**\n"
+        for topic in milestone.topics:
+            formatted += f"- {topic}\n"
+        formatted += "\n"
+    return formatted
+
 def main():
     """Main entry point for the Python Trainer application."""
     click.echo("Welcome to the Python Trainer App!")
@@ -22,10 +33,12 @@ def main():
 
     click.echo("\nGenerated Training Plan:")
     click.echo(training_plan)
-    click.echo(training_plan)
+    
+    # Convert TrainingPlan to a formatted string
+    formatted_plan = format_training_plan(training_plan)
     
     # Save the training plan to a Markdown file
-    save_path = save_training_plan(training_plan, filename="training_plan.md")
+    save_path = save_training_plan(formatted_plan, filename="training_plan.md")
     click.echo(f"\nTraining plan successfully saved as Markdown to {save_path}")
 
     # Prompt user to generate practice task for the first milestone
