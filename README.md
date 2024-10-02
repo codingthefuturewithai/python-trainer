@@ -69,6 +69,15 @@ When you run the application, it will:
 
 The generated training plan and practice task will be saved in the current working directory as `training_plan.md` and `Milestone_1_Practice_Task.md` respectively.
 
+## Example Output
+
+After running the application, you'll find two new files in your current directory:
+
+1. `training_plan.md`: Contains the personalized Python training plan with multiple milestones.
+2. `Milestone_1_Practice_Task.md`: Contains a practice task for the first milestone (if you chose to generate it).
+
+These files will be in Markdown format, making them easy to read and share.
+
 ## Contributing
 
 Contributions to the Python Trainer App are welcome! Please feel free to submit a Pull Request.
