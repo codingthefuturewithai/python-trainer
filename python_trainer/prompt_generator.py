@@ -51,6 +51,7 @@ Each milestone should be tailored to the user's experience level and learning st
 Provide the response in the following JSON format:
 
 {{
+    "background": "A brief paragraph explaining the rationale behind the training plan based on the user's profile",
     "milestones": [
         {{
             "name": "Milestone name",

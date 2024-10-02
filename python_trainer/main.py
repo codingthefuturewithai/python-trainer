@@ -12,19 +12,25 @@ def format_training_plan(training_plan):
 
     This function takes a TrainingPlan object and constructs a 
     Markdown-formatted string that details each milestone within 
-    the training plan. It includes the milestone name, objective, 
-    and associated topics.
+    the training plan. It includes the background information,
+    milestone name, objective, and associated topics.
 
     Args:
         training_plan (TrainingPlan): The training plan containing 
-        milestones and their respective details.
+        background information and milestones with their respective details.
 
     Returns:
         str: A string formatted in Markdown for the training plan.
     """
     formatted = "# Python Training Plan\n\n"
+    
+    # Add background information
+    formatted += "## Background\n\n"
+    formatted += f"{training_plan.background}\n\n"
+    
+    formatted += "## Milestones\n\n"
     for milestone in training_plan.milestones:
-        formatted += f"## {milestone.name}\n\n"
+        formatted += f"### {milestone.name}\n\n"
         formatted += f"**Objective:** {milestone.objective}\n\n"
         formatted += "**Topics:**\n"
         for topic in milestone.topics:

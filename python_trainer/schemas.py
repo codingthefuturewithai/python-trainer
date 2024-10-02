@@ -7,4 +7,5 @@ class Milestone(BaseModel):
     topics: List[str]
 
 class TrainingPlan(BaseModel):
+    background: str
     milestones: List[Milestone]
