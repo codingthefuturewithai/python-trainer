@@ -6,8 +6,18 @@ from pathlib import Path
 # Get the root directory of the project
 root_dir = Path(__file__).resolve().parent.parent
 
+# Debug: Print the root directory
+print(f"Root directory: {root_dir}")
+
 # Load environment variables from .env file in the root directory
-load_dotenv(dotenv_path=root_dir / '.env')
+dotenv_path = root_dir / '.env'
+print(f"Loading .env from: {dotenv_path}")
+load_dotenv(dotenv_path=dotenv_path)
+
+# Debug: Print all environment variables (be careful with this in production!)
+print("Environment variables:")
+for key, value in os.environ.items():
+    print(f"{key}: {'*' * len(value)}")
 
 # Debug: Print the API key (be careful with this in production!)
 api_key = os.getenv("OPENAI_API_KEY")
