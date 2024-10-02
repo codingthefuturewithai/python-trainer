@@ -73,11 +73,16 @@ def main():
             click.echo("Error: No milestones found in the training plan.")
             return
         task = get_practice_task(task_prompt)
-        click.echo("\nGenerated Practice Task for the First Milestone:")
-        click.echo(task)
         # Save the practice task to a Markdown file
         task_save_path = save_training_plan(task, filename="Milestone_1_Practice_Task.md")
         click.echo(f"\nPractice task successfully saved as Markdown to {task_save_path}")
+        
+        click.echo("\nTo get started with the practice task:")
+        click.echo("1. Open the saved practice task file.")
+        click.echo("2. Follow the step-by-step instructions to set up your project.")
+        click.echo("3. Complete the task requirements as specified.")
+        click.echo("4. Use the hints and resources provided if you get stuck.")
+        click.echo("5. Compare your solution with the expected output.")
     else:
         click.echo("You can generate the practice task later by running this command again.")
     

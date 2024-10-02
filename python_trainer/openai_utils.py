@@ -40,7 +40,9 @@ def get_practice_task(prompt: str) -> str:
         str: The generated practice task from OpenAI GPT.
     """
     response = send_openai_request(prompt)
-    return response.strip()
+    # Ensure the response is properly formatted as Markdown
+    formatted_response = f"# Practice Task\n\n{response.strip()}"
+    return formatted_response
 
 def send_openai_request(prompt: str) -> str:
     """
