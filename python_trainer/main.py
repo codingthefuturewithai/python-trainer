@@ -1,4 +1,5 @@
 import click
+import json
 from python_trainer.config import UserInfo
 from python_trainer.cli import gather_user_info, prompt_yes_no
 from python_trainer.prompt_generator import generate_prompt, generate_task_prompt
@@ -26,18 +27,19 @@ def main():
     generate_task = prompt_yes_no("Would you like to generate the practice task for the first milestone?")
     if generate_task:
         click.echo("Generating practice task for the first milestone...")
-        # Generate the practice task for the first milestone
-        first_milestone = {
-            "objective": "Develop foundational knowledge of Python's basic syntax, control structures, and data types",
-            "topics": ["Python data types", "control structures", "functions", "file handling"]
-        }
-        task_prompt = generate_task_prompt(first_milestone)
-        task = get_training_plan(task_prompt)
-        click.echo("\nGenerated Practice Task for the First Milestone:")
-        click.echo(task)
-        # Save the practice task to a Markdown file
-        task_save_path = save_training_plan(task, filename="Milestone_1_Practice_Task.md")
-        click.echo(f"\nPractice task successfully saved as Markdown to {task_save_path}")
+        try:
+            # Parse the training plan to extract the first milestone's details
+            training_plan_json = json.loads(training_plan)
+            first_milestone = training_plan_json['milestones'][0]
+            task_prompt = generate_task_prompt(first_milestone)
+            task = get_training_plan(task_prompt)
+            click.echo("\nGenerated Practice Task for the First Milestone:")
+            click.echo(task)
+            # Save the practice task to a Markdown file
+            task_save_path = save_training_plan(task, filename="Milestone_1_Practice_Task.md")
+            click.echo(f"\nPractice task successfully saved as Markdown to {task_save_path}")
+        except (json.JSONDecodeError, KeyError, IndexError) as e:
+            click.echo(f"Error: Unable to extract first milestone details from the training plan. {str(e)}")
     else:
         click.echo("You can generate the practice task later by running this command again.")
     
