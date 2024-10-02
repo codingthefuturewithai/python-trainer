@@ -4,7 +4,7 @@ from python_trainer.config import UserInfo
 from python_trainer.cli import gather_user_info, prompt_yes_no
 from python_trainer.prompt_generator import generate_prompt, generate_task_prompt
 from python_trainer.openai_utils import get_training_plan, get_practice_task
-from python_trainer.utils.file_utils import save_training_plan
+from python_trainer.utils.file_utils import save_training_plan, create_output_directory
 
 def format_training_plan(training_plan):
     """
