@@ -35,6 +35,18 @@ Preferred learning style: {user_info.learning_style}
 
 The plan should include several milestones with milestone names, objectives, and topics to cover. 
 Each milestone should be tailored to the user's experience level and learning style.
-Provide a structured response with clear sections for each milestone."""
+Provide the response in the following JSON format:
+
+{{
+    "milestones": [
+        {{
+            "name": "Milestone name",
+            "objective": "Milestone objective",
+            "topics": ["Topic 1", "Topic 2", "Topic 3"]
+        }},
+        ...
+    ]
+}}
+"""
 
     return prompt

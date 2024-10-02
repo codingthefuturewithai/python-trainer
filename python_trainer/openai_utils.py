@@ -27,7 +27,7 @@ def get_training_plan(prompt: str) -> TrainingPlan:
     """
     try:
         response = openai.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4-0613",  # Updated to a more recent model
             messages=[
                 {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans in JSON format."},
                 {"role": "user", "content": prompt}
@@ -35,10 +35,22 @@ def get_training_plan(prompt: str) -> TrainingPlan:
             temperature=0.1,
         )
         plan_str = response.choices[0].message.content.strip()
-        plan_dict = json.loads(plan_str)
+        
+        # Try to extract JSON from the response if it's not pure JSON
+        try:
+            plan_dict = json.loads(plan_str)
+        except json.JSONDecodeError:
+            # If it's not valid JSON, try to extract JSON from the string
+            import re
+            json_match = re.search(r'\{.*\}', plan_str, re.DOTALL)
+            if json_match:
+                plan_dict = json.loads(json_match.group())
+            else:
+                raise ValueError("Could not extract valid JSON from the response")
+        
         return TrainingPlan(**plan_dict)
-    except json.JSONDecodeError:
-        raise ValueError("OpenAI response is not valid JSON")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"OpenAI response is not valid JSON: {str(e)}")
     except ValueError as e:
         raise ValueError(f"Error parsing OpenAI response: {str(e)}")
     except Exception as e:
