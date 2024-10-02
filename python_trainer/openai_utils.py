@@ -19,14 +19,16 @@ def get_training_plan(prompt: str) -> str:
         str: The generated training plan from OpenAI GPT.
     """
     try:
-        response = openai.Completion.create(
-            engine="gpt-4o-mini",
-            prompt=prompt,
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans."},
+                {"role": "user", "content": prompt}
+            ],
             max_tokens=1000,
             n=1,
-            stop=None,
             temperature=0.7,
         )
-        return response.choices[0].text.strip()
+        return response.choices[0].message['content'].strip()
     except Exception as e:
         return f"Error: Unable to generate training plan. {str(e)}"
