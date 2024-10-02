@@ -18,9 +18,9 @@ def main():
     click.echo("\nGenerated Training Plan:")
     click.echo(training_plan)
     
-    # Save the training plan to a file
+    # Save the training plan to a Markdown file
     save_path = save_training_plan(training_plan)
-    click.echo(f"\nTraining plan successfully saved to {save_path}")
+    click.echo(f"\nTraining plan successfully saved as Markdown to {save_path}")
 
 if __name__ == "__main__":
     main()
