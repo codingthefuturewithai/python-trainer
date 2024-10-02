@@ -26,7 +26,7 @@ The Python Trainer App is a command-line tool designed to create personalized Py
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/codingthefuturewithai/python-trainer.git
    cd python-trainer-app
    ```
 
@@ -102,5 +102,7 @@ The Python Trainer App has several exciting possibilities for future enhancement
    - Specific requests or redirections from the student
 
 5. **Progress Tracking**: Create a system to track and visualize the learner's progress over time, providing motivation and insights into areas that may need more focus.
+
+6. **Web-based User Interface**: Create a UI to allow the user to generate a plan and exercises, update the plan, track progress, etc.
 
 These enhancements would make the Python Trainer App an even more powerful and personalized learning tool, adapting to each user's unique learning journey.
