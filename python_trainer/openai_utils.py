@@ -25,33 +25,63 @@ def get_training_plan(prompt: str) -> TrainingPlan:
     Returns:
         TrainingPlan: The generated training plan from OpenAI GPT, parsed into a TrainingPlan object.
     """
+    response = send_openai_request(prompt)
+    plan_dict = parse_openai_response(response)
+    return TrainingPlan(**plan_dict)
+
+def get_practice_task(prompt: str) -> str:
+    """
+    Send a prompt to OpenAI GPT and get a practice task response.
+
+    Args:
+        prompt (str): The generated prompt for OpenAI GPT.
+
+    Returns:
+        str: The generated practice task from OpenAI GPT.
+    """
+    response = send_openai_request(prompt)
+    return response.strip()
+
+def send_openai_request(prompt: str) -> str:
+    """
+    Send a request to OpenAI GPT and get a response.
+
+    Args:
+        prompt (str): The generated prompt for OpenAI GPT.
+
+    Returns:
+        str: The response from OpenAI GPT.
+    """
     try:
         response = openai.chat.completions.create(
             model="gpt-4o-mini",  # Updated to a more recent model
             messages=[
-                {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans in JSON format."},
+                {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans and practice tasks."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.1,
         )
-        plan_str = response.choices[0].message.content.strip()
-        
-        # Try to extract JSON from the response if it's not pure JSON
-        try:
-            plan_dict = json.loads(plan_str)
-        except json.JSONDecodeError:
-            # If it's not valid JSON, try to extract JSON from the string
-            import re
-            json_match = re.search(r'\{.*\}', plan_str, re.DOTALL)
-            if json_match:
-                plan_dict = json.loads(json_match.group())
-            else:
-                raise ValueError("Could not extract valid JSON from the response")
-        
-        return TrainingPlan(**plan_dict)
-    except json.JSONDecodeError as e:
-        raise ValueError(f"OpenAI response is not valid JSON: {str(e)}")
-    except ValueError as e:
-        raise ValueError(f"Error parsing OpenAI response: {str(e)}")
+        return response.choices[0].message.content.strip()
     except Exception as e:
-        raise Exception(f"Error: Unable to generate training plan. {str(e)}")
+        raise Exception(f"Error: Unable to generate response from OpenAI. {str(e)}")
+
+def parse_openai_response(response: str) -> dict:
+    """
+    Parse the OpenAI response into a dictionary.
+
+    Args:
+        response (str): The response from OpenAI GPT.
+
+    Returns:
+        dict: The parsed response as a dictionary.
+    """
+    try:
+        return json.loads(response)
+    except json.JSONDecodeError:
+        # If it's not valid JSON, try to extract JSON from the string
+        import re
+        json_match = re.search(r'\{.*\}', response, re.DOTALL)
+        if json_match:
+            return json.loads(json_match.group())
+        else:
+            raise ValueError("Could not extract valid JSON from the response")
