@@ -1,9 +1,13 @@
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
+from pathlib import Path
 
-# Load environment variables from .env file
-load_dotenv()
+# Get the root directory of the project
+root_dir = Path(__file__).resolve().parent.parent
+
+# Load environment variables from .env file in the root directory
+load_dotenv(dotenv_path=root_dir / '.env')
 
 # Set up OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
