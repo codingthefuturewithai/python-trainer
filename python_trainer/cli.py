@@ -10,6 +10,10 @@ def prompt_with_choices(text, choices):
             return choices[choice - 1]
         click.echo(f"Invalid choice. Please enter a number between 1 and {len(choices)}.")
 
+def prompt_yes_no(question: str) -> bool:
+    """Prompt the user for a yes/no response."""
+    return click.confirm(question, default=True)
+
 def gather_user_info() -> UserInfo:
     """Gather user information through CLI prompts."""
     programming_experience = prompt_with_choices(
