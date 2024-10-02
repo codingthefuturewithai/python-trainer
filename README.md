@@ -84,44 +84,7 @@ These files will be in Markdown format, making them easy to read and share.
 
 Here's an example of what a user session might look like:
 
-```
-Welcome to the Python Trainer App!
-All files will be saved in: /path/to/your/project/python_trainer_output
-
-Please enter your programming experience level (beginner/intermediate/advanced): beginner
-Please enter your Python experience level (or press Enter if none): 
-What is your learning goal?: To build web applications with Python
-What is your preferred learning style?: hands-on projects
-
-User information collected: UserInfo(programming_experience='beginner', python_experience=None, learning_goal='To build web applications with Python', learning_style='hands-on projects')
-
-Generating training plan...
-
-Training plan successfully saved as Markdown to /path/to/your/project/python_trainer_output/training_plan.md
-
-Would you like to generate the practice task for the first milestone? (yes/no): yes
-Generating practice task for the first milestone...
-First Milestone: name='Python Fundamentals' objective='Understand the core concepts of Python programming including data types, control structures, and functions.' topics=['Data Types (int, float, str, list, dict, set, tuple)', 'Control Structures (if statements, loops)', 'Functions (defining, calling, parameters, return values)']
-
-Practice task successfully saved as Markdown to /path/to/your/project/python_trainer_output/Milestone_1_Practice_Task.md
-
-To get started with the practice task:
-1. Open the saved practice task file.
-2. Follow the step-by-step instructions to set up your project.
-3. Complete the task requirements as specified.
-4. Use the hints and resources provided if you get stuck.
-5. Compare your solution with the expected output.
-
-Would you like to generate practice tasks for all remaining milestones? (yes/no): yes
-Generating practice tasks for all remaining milestones...
-Generating practice task for Milestone 2...
-Practice task for Milestone 2 saved to /path/to/your/project/python_trainer_output/Milestone_2_Practice_Task.md
-Generating practice task for Milestone 3...
-Practice task for Milestone 3 saved to /path/to/your/project/python_trainer_output/Milestone_3_Practice_Task.md
-All practice tasks have been generated and saved.
-
-Thank you for using the Python Trainer App!
-```
+![Sample User Session](images/sample-user-session.png)
 
 This sample session demonstrates the interactive nature of the app, showing how it prompts for user information, generates a training plan, and creates practice tasks based on the user's preferences.
 
