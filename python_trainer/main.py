@@ -23,8 +23,8 @@ def format_training_plan(training_plan):
         str: A string formatted in Markdown for the training plan.
     """
     formatted = "# Python Training Plan\n\n"
-    for i, milestone in enumerate(training_plan.milestones, 1):
-        formatted += f"## Milestone {i}: {milestone.name}\n\n"
+    for milestone in training_plan.milestones:
+        formatted += f"## {milestone.name}\n\n"
         formatted += f"**Objective:** {milestone.objective}\n\n"
         formatted += "**Topics:**\n"
         for topic in milestone.topics:
