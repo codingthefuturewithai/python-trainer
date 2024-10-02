@@ -50,8 +50,8 @@ def main():
         click.echo("Error: Training plan generation failed. Please try again.")
         return
 
-    click.echo("\nGenerated Training Plan:")
-    click.echo(training_plan)
+    # click.echo("\nGenerated Training Plan:")
+    # click.echo(training_plan)
     
     # Convert TrainingPlan to a formatted string
     formatted_plan = format_training_plan(training_plan)
