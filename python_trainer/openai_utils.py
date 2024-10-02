@@ -20,7 +20,7 @@ def get_training_plan(prompt: str) -> str:
     """
     try:
         response = openai.Completion.create(
-            engine="text-davinci-002",
+            engine="gpt-4o-mini",
             prompt=prompt,
             max_tokens=1000,
             n=1,
