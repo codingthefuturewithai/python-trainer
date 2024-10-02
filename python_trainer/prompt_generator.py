@@ -1,5 +1,22 @@
 from python_trainer.config import UserInfo
 
+def generate_task_prompt(milestone: dict) -> str:
+    """
+    Generate a prompt for OpenAI GPT to create a practice task based on the milestone.
+
+    Args:
+        milestone (dict): The first milestone details.
+
+    Returns:
+        str: A formatted prompt for the OpenAI GPT model.
+    """
+    prompt = f"""Create a practice task for the following Python milestone:
+Objective: {milestone['objective']}
+Topics to Cover: {', '.join(milestone['topics'])}
+
+The practice task should include detailed instructions, expected outputs, and hints if necessary."""
+    return prompt
+
 def generate_prompt(user_info: UserInfo) -> str:
     """
     Generate a prompt for OpenAI GPT based on user information.

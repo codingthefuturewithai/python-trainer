@@ -1,6 +1,6 @@
 from pathlib import Path
 
-def save_training_plan(training_plan: str, filename: str = "training_plan.md") -> Path:
+def save_training_plan(training_plan: str, filename: str) -> Path:
     """
     Save the training plan to a Markdown file.
 
