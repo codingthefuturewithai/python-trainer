@@ -5,19 +5,22 @@ def gather_user_info() -> UserInfo:
     """Gather user information through CLI prompts."""
     programming_experience = click.prompt(
         "What is your programming experience?",
-        type=click.Choice(["No programming experience", "Experienced programmer new to Python"])
+        type=click.Choice(["No programming experience", "Experienced programmer new to Python"]),
+        show_choices=True
     )
     
     python_experience = click.prompt(
         "What is your current Python experience?",
-        type=click.Choice(["Novice", "Beginner"])
+        type=click.Choice(["Novice", "Beginner"]),
+        show_choices=True
     )
     
     learning_goal = click.prompt("What is your learning goal for Python?", type=str)
     
     learning_style = click.prompt(
         "What is your preferred learning style?",
-        type=click.Choice(["Hands-on projects", "Reading and theory-based learning"])
+        type=click.Choice(["Hands-on projects", "Reading and theory-based learning"]),
+        show_choices=True
     )
     
     return UserInfo(
