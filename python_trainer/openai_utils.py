@@ -27,7 +27,7 @@ def get_training_plan(prompt: str) -> TrainingPlan:
     """
     try:
         response = openai.chat.completions.create(
-            model="gpt-4-0613",  # Updated to a more recent model
+            model="gpt-4o-mini",  # Updated to a more recent model
             messages=[
                 {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans in JSON format."},
                 {"role": "user", "content": prompt}
