@@ -1,1 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Project-specific
 .aider*
+*.json
+
+# Dependency management
+pip-lock.txt
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
