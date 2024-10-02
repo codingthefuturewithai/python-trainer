@@ -17,10 +17,12 @@ def gather_user_info() -> UserInfo:
         ["No programming experience", "Experienced programmer new to Python"]
     )
     
-    python_experience = prompt_with_choices(
-        "What is your current Python experience?",
-        ["Novice", "Beginner"]
-    )
+    python_experience = None
+    if programming_experience == "Experienced programmer new to Python":
+        python_experience = prompt_with_choices(
+            "What is your current Python experience?",
+            ["No Python experience", "Basic Python knowledge"]
+        )
     
     learning_goal = click.prompt("What is your learning goal for Python?", type=str)
     
