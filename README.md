@@ -42,10 +42,13 @@ The Python Trainer App is a command-line tool designed to create personalized Py
    ```
 
 4. Set up your OpenAI API key:
-   - Create a `.env` file in the project root directory
-   - Add your OpenAI API key to the `.env` file:
+   - Copy the `.env_example` file to create a new `.env` file in the project root directory:
      ```
-     OPENAI_API_KEY=your_api_key_here
+     cp .env_example .env
+     ```
+   - Open the `.env` file and replace `your_api_key_here` with your actual OpenAI API key:
+     ```
+     OPENAI_API_KEY=your_actual_api_key_here
      ```
 
 5. Run the application:
