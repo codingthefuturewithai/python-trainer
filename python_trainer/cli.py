@@ -2,12 +2,13 @@ import click
 from python_trainer.config import UserInfo
 
 def prompt_with_choices(text, choices):
-    return click.prompt(
-        text,
-        type=click.Choice(choices),
-        show_choices=False,
-        prompt_suffix='\n' + '\n'.join(f'{i+1}) {choice}' for i, choice in enumerate(choices)) + '\nEnter the number of your choice: '
-    )
+    choice_text = '\n'.join(f'{i+1}) {choice}' for i, choice in enumerate(choices))
+    while True:
+        click.echo(f"{text}\n{choice_text}")
+        choice = click.prompt("Enter the number of your choice", type=int)
+        if 1 <= choice <= len(choices):
+            return choices[choice - 1]
+        click.echo(f"Invalid choice. Please enter a number between 1 and {len(choices)}.")
 
 def gather_user_info() -> UserInfo:
     """Gather user information through CLI prompts."""
