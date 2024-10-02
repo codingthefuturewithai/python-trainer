@@ -9,8 +9,12 @@ root_dir = Path(__file__).resolve().parent.parent
 # Load environment variables from .env file in the root directory
 load_dotenv(dotenv_path=root_dir / '.env')
 
+# Debug: Print the API key (be careful with this in production!)
+api_key = os.getenv("OPENAI_API_KEY")
+print(f"API Key: {api_key[:5]}...{api_key[-5:] if api_key else 'None'}")
+
 # Set up OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=api_key)
 
 def get_training_plan(prompt: str) -> str:
     """
