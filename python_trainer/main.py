@@ -31,6 +31,7 @@ def main():
             # Parse the training plan to extract the first milestone's details
             training_plan_json = json.loads(training_plan)
             first_milestone = training_plan_json['milestones'][0]
+            print(f"First Milestone: {first_milestone}")
             task_prompt = generate_task_prompt(first_milestone)
             task = get_training_plan(task_prompt)
             click.echo("\nGenerated Practice Task for the First Milestone:")
