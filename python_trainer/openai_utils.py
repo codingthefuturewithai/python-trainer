@@ -3,16 +3,18 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from pathlib import Path
 
+print("Starting openai_utils.py")
+
 # Get the root directory of the project
 root_dir = Path(__file__).resolve().parent.parent
-
-# Debug: Print the root directory
 print(f"Root directory: {root_dir}")
 
 # Load environment variables from .env file in the root directory
 dotenv_path = root_dir / '.env'
 print(f"Loading .env from: {dotenv_path}")
 load_dotenv(dotenv_path=dotenv_path)
+
+print("After loading .env file")
 
 # Debug: Print all environment variables (be careful with this in production!)
 print("Environment variables:")
@@ -21,12 +23,14 @@ for key, value in os.environ.items():
 
 # Debug: Print the API key (be careful with this in production!)
 api_key = os.getenv("OPENAI_API_KEY")
-print(f"API Key: {api_key[:5]}...{api_key[-5:] if api_key else 'None'}")
+print(f"API Key from os.getenv: {api_key[:5]}...{api_key[-5:] if api_key else 'None'}")
 
 # Set up OpenAI client
 client = OpenAI(api_key=api_key)
+print(f"OpenAI client created with API key: {client.api_key[:5]}...{client.api_key[-5:] if client.api_key else 'None'}")
 
 def get_training_plan(prompt: str) -> str:
+    print("Entering get_training_plan function")
     """
     Send a prompt to OpenAI GPT and get a training plan response.
 
