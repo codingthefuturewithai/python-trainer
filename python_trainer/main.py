@@ -35,6 +35,10 @@ def format_training_plan(training_plan):
 def main():
     """Main entry point for the Python Trainer application."""
     click.echo("Welcome to the Python Trainer App!")
+    
+    output_dir = create_output_directory()
+    click.echo(f"All files will be saved in: {output_dir}")
+    
     user_info = gather_user_info()
     click.echo(f"User information collected: {user_info}")
     
