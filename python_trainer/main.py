@@ -7,6 +7,21 @@ from python_trainer.openai_utils import get_training_plan, get_practice_task
 from python_trainer.utils.file_utils import save_training_plan
 
 def format_training_plan(training_plan):
+    """
+    Formats the given training plan into a Markdown string.
+
+    This function takes a TrainingPlan object and constructs a 
+    Markdown-formatted string that details each milestone within 
+    the training plan. It includes the milestone name, objective, 
+    and associated topics.
+
+    Args:
+        training_plan (TrainingPlan): The training plan containing 
+        milestones and their respective details.
+
+    Returns:
+        str: A string formatted in Markdown for the training plan.
+    """
     formatted = "# Python Training Plan\n\n"
     for i, milestone in enumerate(training_plan.milestones, 1):
         formatted += f"## Milestone {i}: {milestone.name}\n\n"
