@@ -81,6 +81,15 @@ def main():
     else:
         click.echo("You can generate the practice task later by running this command again.")
     
+    # Prompt user to generate practice tasks for all remaining milestones
+    generate_all_tasks = prompt_yes_no("Would you like to generate practice tasks for all remaining milestones? (yes/no)")
+    if generate_all_tasks:
+        click.echo("Generating practice tasks for all remaining milestones...")
+        # TODO: Implement the generation of practice tasks for all remaining milestones
+        click.echo("This feature will be implemented in the next user story (POC-10).")
+    else:
+        click.echo("You can generate practice tasks for the remaining milestones later by running this command again.")
+
     click.echo("Thank you for using the Python Trainer App!")
 
 if __name__ == "__main__":
