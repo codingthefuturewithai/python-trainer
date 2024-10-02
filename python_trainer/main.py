@@ -19,7 +19,7 @@ def main():
     click.echo(training_plan)
     
     # Save the training plan to a Markdown file
-    save_path = save_training_plan(training_plan)
+    save_path = save_training_plan(training_plan, filename="training_plan.md")
     click.echo(f"\nTraining plan successfully saved as Markdown to {save_path}")
 
     # Prompt user to generate practice task for the first milestone

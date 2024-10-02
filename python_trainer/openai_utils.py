@@ -1,5 +1,5 @@
 import os
-from openai import OpenAI
+import openai
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -11,7 +11,7 @@ dotenv_path = root_dir / '.env'
 load_dotenv(dotenv_path=dotenv_path)
 
 # Set up OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def get_training_plan(prompt: str) -> str:
     """
@@ -24,7 +24,7 @@ def get_training_plan(prompt: str) -> str:
         str: The generated training plan from OpenAI GPT.
     """
     try:
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans."},
