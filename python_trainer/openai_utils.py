@@ -1,7 +1,9 @@
 import os
+import json
 import openai
 from dotenv import load_dotenv
 from pathlib import Path
+from python_trainer.schemas import TrainingPlan
 
 # Get the root directory of the project
 root_dir = Path(__file__).resolve().parent.parent
@@ -13,7 +15,7 @@ load_dotenv(dotenv_path=dotenv_path)
 # Set up OpenAI client
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def get_training_plan(prompt: str) -> str:
+def get_training_plan(prompt: str) -> TrainingPlan:
     """
     Send a prompt to OpenAI GPT and get a training plan response.
 
@@ -21,19 +23,23 @@ def get_training_plan(prompt: str) -> str:
         prompt (str): The generated prompt for OpenAI GPT.
 
     Returns:
-        str: The generated training plan from OpenAI GPT.
+        TrainingPlan: The generated training plan from OpenAI GPT, parsed into a TrainingPlan object.
     """
     try:
         response = openai.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4-0613",
             messages=[
-                    {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans."},
-                    {"role": "user", "content": prompt}
-                ],
-            # max_tokens=1000,
-            # n=1,
+                {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans in JSON format."},
+                {"role": "user", "content": prompt}
+            ],
             temperature=0.1,
         )
-        return response.choices[0].message.content.strip()
+        plan_str = response.choices[0].message.content.strip()
+        plan_dict = json.loads(plan_str)
+        return TrainingPlan(**plan_dict)
+    except json.JSONDecodeError:
+        raise ValueError("OpenAI response is not valid JSON")
+    except ValueError as e:
+        raise ValueError(f"Error parsing OpenAI response: {str(e)}")
     except Exception as e:
-        return f"Error: Unable to generate training plan. {str(e)}"
+        raise Exception(f"Error: Unable to generate training plan. {str(e)}")
