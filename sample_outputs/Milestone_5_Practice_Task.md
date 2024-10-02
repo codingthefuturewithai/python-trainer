@@ -3,74 +3,64 @@
 # Practice Task: Milestone 5 - Introduction to Third-Party Libraries
 
 ## Introduction
-In this practice task, you will familiarize yourself with popular third-party libraries in Python, specifically NumPy and Pandas. You will learn how to install these libraries using `pip`, and you will create a small project that demonstrates basic array manipulation with NumPy and data analysis with Pandas.
+In this practice task, you will explore and utilize popular Python libraries: `Requests`, `Pandas`, and `Matplotlib`. You will create a simple project that fetches data from an API, processes it, and visualizes the results. This task will help you understand how to work with third-party libraries effectively.
 
 ## Step-by-Step Instructions
 
 ### 1. Set Up the Project
-- **Create a New Project**: Start by creating a new directory for your project. You can name it `third_party_libraries_practice`.
-- **Main Python Script File**: Inside the project directory, create a new Python file named `main.py`.
-- **Additional Files**: You will also need a CSV file for the Pandas part of the task. Create a file named `data.csv` in the same directory with the following sample data:
-
-```csv
-Name,Age,Salary
-Alice,30,70000
-Bob,25,50000
-Charlie,35,80000
-David,28,60000
-Eve,22,45000
-```
+- **Create a new project directory**: Name it `data_visualization_project`.
+- **Navigate into the project directory**:
+  ```bash
+  mkdir data_visualization_project
+  cd data_visualization_project
+  ```
+- **Create the main Python script file**: Name it `main.py`.
+- **Create a requirements file**: Name it `requirements.txt`.
 
 ### 2. Install Required Libraries
-Open your terminal or command prompt and navigate to your project directory. Run the following commands to install NumPy and Pandas:
-
+In your terminal, run the following command to install the necessary libraries:
 ```bash
-pip install numpy pandas
+pip install requests pandas matplotlib
+```
+Make sure to add the installed libraries to your `requirements.txt` file:
+```
+requests
+pandas
+matplotlib
 ```
 
-### 3. Detailed Requirements for the Task
-- **NumPy Task**: 
-  - In `main.py`, import NumPy and create a NumPy array with the following values: `[1, 2, 3, 4, 5]`.
-  - Calculate and print the mean, median, and standard deviation of the array.
+## Detailed Requirements for the Task
+1. **Fetch Data**:
+   - Use the `Requests` library to fetch data from a public API. You can use the [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API to get a list of posts.
+   - Endpoint: `https://jsonplaceholder.typicode.com/posts`
 
-- **Pandas Task**:
-  - Import Pandas in `main.py`.
-  - Load the `data.csv` file into a Pandas DataFrame.
-  - Perform the following operations:
-    - Print the first 5 rows of the DataFrame.
-    - Calculate and print the average salary.
-    - Filter and print the names of employees who earn more than $60,000.
+2. **Process Data**:
+   - Use the `Pandas` library to convert the fetched JSON data into a DataFrame.
+   - Extract the following columns: `userId`, `id`, `title`, and `body`.
 
-### 4. Expected Output or Behavior
-When you run `main.py`, you should see output similar to the following:
+3. **Visualize Data**:
+   - Use the `Matplotlib` library to create a bar chart that shows the number of posts per `userId`.
+   - The x-axis should represent `userId`, and the y-axis should represent the count of posts.
 
-```
-NumPy Array Statistics:
-Mean: 3.0
-Median: 3.0
-Standard Deviation: 1.4142135623730951
+4. **Output**:
+   - Save the bar chart as an image file named `posts_per_user.png`.
 
-Pandas DataFrame:
-      Name  Age  Salary
-0    Alice   30   70000
-1      Bob   25   50000
-2  Charlie   35   80000
-3    David   28   60000
-4      Eve   22   45000
+## Expected Output or Behavior
+- When you run the `main.py` script, it should:
+  1. Fetch the data from the API.
+  2. Process the data into a DataFrame.
+  3. Generate a bar chart showing the number of posts per user.
+  4. Save the chart as `posts_per_user.png` in the project directory.
 
-Average Salary: 61000.0
-Employees earning more than $60,000: ['Alice', 'Charlie', 'David']
-```
+## Hints or Tips for Completing the Task
+- Make sure to handle any potential errors when making the HTTP request (e.g., check for a successful response).
+- Use `pandas.DataFrame.value_counts()` to easily count the number of posts per `userId`.
+- When plotting with Matplotlib, remember to call `plt.show()` if you want to display the chart interactively.
 
-### 5. Hints or Tips for Completing the Task
-- Make sure to import the libraries at the beginning of your `main.py` file.
-- Use `numpy.mean()`, `numpy.median()`, and `numpy.std()` for calculating statistics in NumPy.
-- Use `pandas.read_csv()` to load the CSV file into a DataFrame.
-- Use DataFrame methods like `.head()`, `.mean()`, and boolean indexing to filter data in Pandas.
+## Additional Resources
+- [Requests Documentation](https://docs.python-requests.org/en/latest/)
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+- [Matplotlib Documentation](https://matplotlib.org/stable/contents.html)
+- [JSONPlaceholder API Documentation](https://jsonplaceholder.typicode.com/)
 
-### 6. Additional Resources
-- [NumPy Documentation](https://numpy.org/doc/stable/)
-- [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/)
-- [Python Package Index (PyPI)](https://pypi.org/) - for exploring more third-party libraries.
-
-By completing this task, you will gain hands-on experience with installing and using third-party libraries in Python, which is essential for data manipulation and analysis. Happy coding!
+By completing this task, you will gain hands-on experience with third-party libraries in Python, enhancing your skills in data manipulation and visualization. Happy coding!

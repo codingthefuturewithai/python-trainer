@@ -1,59 +1,91 @@
 # Practice Task
 
-# Practice Task: Organizing Code with Modules and Packages
+# Practice Task: Object-Oriented Programming in Python
 
 ## Introduction
-In this practice task, you will explore how to organize your Python code using modules and packages. You will create a simple project that utilizes Python's standard library modules, such as `os`, `sys`, and `datetime`. By the end of this task, you will have a better understanding of how to structure your code and leverage the power of Python's built-in functionalities.
+In this practice task, you will create a simple library management system using Object-Oriented Programming (OOP) principles in Python. This task will help you understand how to define classes and objects, implement inheritance and polymorphism, and utilize encapsulation and abstraction in your code.
 
-## Step-by-Step Instructions
+## Project Setup Instructions
 
-### 1. Set Up the Project
-- **Create a new project directory**: Name it `my_project`.
-- **Navigate into the project directory**: 
-  ```bash
-  cd my_project
-  ```
-- **Create the main Python script file**: Name it `main.py`.
-- **Create a new directory for your package**: Name it `my_package`.
-- **Inside `my_package`, create an empty file named `__init__.py`**: This file will allow Python to recognize the directory as a package.
-- **Create an additional module file inside `my_package`**: Name it `utils.py`.
+1. **Create a New Project**: 
+   - Create a new directory for your project called `library_management_system`.
 
-Your project structure should look like this:
-```
-my_project/
-│
-├── main.py
-└── my_package/
-    ├── __init__.py
-    └── utils.py
-```
+2. **Name the Main Python Script File**: 
+   - Inside the `library_management_system` directory, create a file named `main.py`.
 
-### 2. Detailed Requirements
-- **In `utils.py`**:
-  - Create a function named `get_current_time()` that returns the current date and time as a formatted string (e.g., "YYYY-MM-DD HH:MM:SS").
-  - Create a function named `list_directory_contents()` that returns a list of files and directories in the current working directory using the `os` module.
+3. **Additional Files Needed**: 
+   - You will also create a file named `library.py` to define your classes.
 
-- **In `main.py`**:
-  - Import the `get_current_time` and `list_directory_contents` functions from the `my_package.utils` module.
-  - Call `get_current_time()` and print the result.
-  - Call `list_directory_contents()` and print the list of files and directories.
+## Detailed Requirements
 
-### 3. Expected Output or Behavior
+1. **Define Classes**:
+   - Create a base class called `Book` with the following attributes:
+     - `title` (string)
+     - `author` (string)
+     - `isbn` (string)
+     - `available` (boolean, default to `True`)
+   - Implement methods in the `Book` class:
+     - `__str__`: to return a string representation of the book.
+     - `borrow`: to change the `available` status to `False`.
+     - `return_book`: to change the `available` status to `True`.
+
+2. **Create a Derived Class**:
+   - Create a derived class called `EBook` that inherits from `Book` and adds the following attribute:
+     - `file_size` (float, in MB)
+   - Override the `__str__` method to include the `file_size`.
+
+3. **Implement a Library Class**:
+   - Create a class called `Library` that contains:
+     - A list to hold `Book` and `EBook` objects.
+     - Methods to:
+       - `add_book(book)`: to add a book to the library.
+       - `borrow_book(isbn)`: to borrow a book by its ISBN.
+       - `return_book(isbn)`: to return a book by its ISBN.
+       - `list_books()`: to print all books in the library.
+
+4. **Main Functionality**:
+   - In `main.py`, create an instance of `Library`.
+   - Add at least two `Book` objects and two `EBook` objects to the library.
+   - Demonstrate borrowing and returning books, and list all books in the library.
+
+## Expected Output or Behavior
 When you run `main.py`, you should see output similar to the following:
+
 ```
-Current Time: 2023-10-01 12:34:56
-Directory Contents: ['file1.txt', 'file2.py', 'my_package']
+Books in the library:
+Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 1234567890, Available: True
+Title: 1984, Author: George Orwell, ISBN: 0987654321, Available: True
+Title: Python Programming, Author: John Doe, ISBN: 1122334455, Available: True, File Size: 1.5 MB
+Title: Data Science 101, Author: Jane Smith, ISBN: 5544332211, Available: True, File Size: 2.0 MB
+
+Borrowing '1984'...
+Book borrowed successfully.
+
+Books in the library after borrowing:
+Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 1234567890, Available: True
+Title: 1984, Author: George Orwell, ISBN: 0987654321, Available: False
+Title: Python Programming, Author: John Doe, ISBN: 1122334455, Available: True, File Size: 1.5 MB
+Title: Data Science 101, Author: Jane Smith, ISBN: 5544332211, Available: True, File Size: 2.0 MB
+
+Returning '1984'...
+Book returned successfully.
+
+Books in the library after returning:
+Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 1234567890, Available: True
+Title: 1984, Author: George Orwell, ISBN: 0987654321, Available: True
+Title: Python Programming, Author: John Doe, ISBN: 1122334455, Available: True, File Size: 1.5 MB
+Title: Data Science 101, Author: Jane Smith, ISBN: 5544332211, Available: True, File Size: 2.0 MB
 ```
-(Note: The actual current time and directory contents will vary based on your system.)
 
-### 4. Hints or Tips for Completing the Task
-- Use the `datetime` module to get the current date and time.
-- Use `os.listdir()` to list the contents of the current directory.
-- Make sure to handle any potential exceptions, such as when accessing the file system.
+## Hints or Tips for Completing the Task
+- Use the `__init__` method to initialize class attributes.
+- Remember to use `self` to refer to instance variables within class methods.
+- You can use list comprehensions to filter or manipulate lists of books.
+- Test each method individually to ensure they work as expected before integrating them into the main program.
 
-### 5. Additional Resources
-- [Python Modules and Packages Documentation](https://docs.python.org/3/tutorial/modules.html)
-- [Python Standard Library Documentation](https://docs.python.org/3/library/index.html)
-- [Working with Dates and Times in Python](https://realpython.com/python-datetime/)
+## Additional Resources
+- [Python Official Documentation on Classes](https://docs.python.org/3/tutorial/classes.html)
+- [Real Python: Object-Oriented Programming in Python](https://realpython.com/python3-object-oriented-programming/)
+- [W3Schools: Python Classes/Objects](https://www.w3schools.com/python/python_classes.asp)
 
-By completing this task, you will gain hands-on experience with organizing your code into modules and packages, as well as utilizing Python's standard library effectively. Happy coding!
+Good luck, and enjoy building your library management system!

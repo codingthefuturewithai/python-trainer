@@ -1,68 +1,59 @@
 # Practice Task
 
-# Practice Task: Building a Simple Web Application with Flask
+# Practice Task: Building a Complete Python Project
 
 ## Introduction
-In this task, you will apply your Python knowledge to build a simple web application using Flask. This project will help you understand the fundamentals of setting up a Flask application, creating routes and views, and using templates and static files to enhance your web app. By the end of this task, you will have a basic web application that displays a welcome message and an about page.
+In this milestone task, you will apply all the concepts you've learned so far to build a complete Python project. This project will involve planning, designing, implementing features, and finally deploying your application. You will create a simple task management application that allows users to add, view, and delete tasks.
 
 ## Step-by-Step Instructions
 
-### 1. Set Up the Project
+### 1. Project Setup
 - **Create a new project directory**: 
-  - Open your terminal or command prompt and create a new directory for your project:
-    ```bash
-    mkdir flask_web_app
-    cd flask_web_app
-    ```
-
-- **Create a virtual environment** (optional but recommended):
-  ```bash
-  python -m venv venv
-  source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-  ```
-
-- **Install Flask**:
-  ```bash
-  pip install Flask
-  ```
-
+  - Name it `task_manager`.
+  
 - **Create the main Python script file**:
-  - Create a file named `app.py` in your project directory.
+  - Inside the `task_manager` directory, create a file named `main.py`.
 
-- **Create additional files**:
-  - Create a folder named `templates` for HTML files.
-  - Create a folder named `static` for CSS and other static files.
+- **Additional files needed**:
+  - Create a file named `tasks.txt` to store tasks persistently.
+  - Optionally, create a `README.md` file to document your project.
 
 ### 2. Detailed Requirements
-- **In `app.py`**:
-  - Import Flask and create an instance of the Flask class.
-  - Define two routes:
-    - `/` (home page) that returns a welcome message.
-    - `/about` that returns a brief description about the application.
+- **Functionality**:
+  - The application should allow users to:
+    - Add a new task (with a description).
+    - View all tasks.
+    - Delete a task by its number.
   
-- **In the `templates` folder**:
-  - Create an HTML file named `home.html` for the home page with a simple welcome message.
-  - Create another HTML file named `about.html` for the about page with a description of the application.
+- **User Interface**:
+  - Use a simple text-based menu to interact with the user.
+  - The menu should display options to add, view, delete tasks, and exit the application.
 
-- **In the `static` folder**:
-  - Create a CSS file named `styles.css` to style your HTML pages (optional).
+- **Data Storage**:
+  - Store tasks in `tasks.txt` in a simple format (one task per line).
 
 ### 3. Expected Output or Behavior
-- When you run the Flask application and navigate to `http://127.0.0.1:5000/`, you should see the welcome message displayed on the home page.
-- When you navigate to `http://127.0.0.1:5000/about`, you should see the about page with the application description.
-- The pages should be styled according to your CSS file if you choose to include it.
+- When the application runs, it should display a menu like this:
+  ```
+  Task Manager
+  1. Add Task
+  2. View Tasks
+  3. Delete Task
+  4. Exit
+  ```
+- Users can select an option by entering the corresponding number.
+- When adding a task, the user should be prompted to enter a task description.
+- When viewing tasks, the application should list all tasks with their corresponding numbers.
+- When deleting a task, the user should enter the number of the task to be deleted, and the application should confirm the deletion.
 
 ### 4. Hints or Tips for Completing the Task
-- Use the `render_template` function from Flask to render your HTML files.
-- Make sure to run your Flask application using:
-  ```bash
-  flask run
-  ```
-- If you encounter any issues, check the console for error messages that can guide you in debugging.
+- Use functions to organize your code. For example, create separate functions for adding, viewing, and deleting tasks.
+- Use exception handling to manage errors, such as trying to delete a task that doesn't exist.
+- Consider using a loop to keep the application running until the user chooses to exit.
 
 ### 5. Additional Resources
-- [Flask Documentation](https://flask.palletsprojects.com/en/2.0.x/)
-- [Jinja2 Template Engine](https://jinja.palletsprojects.com/en/3.0.x/)
-- [Flask Routing](https://flask.palletsprojects.com/en/2.0.x/quickstart/#routing)
+- [Python File Handling](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
+- [Python Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+- [Python Exception Handling](https://docs.python.org/3/tutorial/errors.html#handling-exceptions)
 
-By completing this task, you will gain hands-on experience with Flask and be better prepared to build more complex web applications in the future. Happy coding!
+By completing this task, you will gain hands-on experience in building a complete project, reinforcing your understanding of Python programming concepts. Good luck!

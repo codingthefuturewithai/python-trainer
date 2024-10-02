@@ -1,78 +1,44 @@
 # Practice Task
 
-# Practice Task: File Handling and Exception Management
+# Practice Task: Milestone 4 - Error Handling and Testing
 
 ## Introduction
-In this practice task, you will develop a Python script that demonstrates your ability to read from and write to various file formats, including text, CSV, and JSON files. You will also implement exception handling to manage potential errors that may arise during file operations. This task will help solidify your understanding of file handling and exception management in Python.
+In this practice task, you will create a simple Python application that performs basic arithmetic operations. You will implement exception handling to manage potential errors, and you will write unit tests to ensure your code functions correctly. This task will help you solidify your understanding of error handling and testing in Python.
 
-## Project Setup Instructions
+## Step-by-Step Instructions
 
-1. **Create a New Project**: 
-   - Create a new directory for your project. You can name it `file_handling_practice`.
+### 1. Set Up the Project
+- **Create a new project directory**: Name it `arithmetic_operations`.
+- **Create the main Python script file**: Inside the `arithmetic_operations` directory, create a file named `calculator.py`.
+- **Create an additional file for tests**: In the same directory, create a file named `test_calculator.py`.
 
-2. **Main Python Script File**: 
-   - Inside the `file_handling_practice` directory, create a new Python file named `file_manager.py`.
+### 2. Detailed Requirements for the Task
+- In `calculator.py`, implement a simple calculator class with the following methods:
+  - `add(a, b)`: Returns the sum of `a` and `b`.
+  - `subtract(a, b)`: Returns the difference of `a` and `b`.
+  - `multiply(a, b)`: Returns the product of `a` and `b`.
+  - `divide(a, b)`: Returns the quotient of `a` and `b`. If `b` is zero, raise a `ValueError` with the message "Cannot divide by zero".
+  
+- Implement exception handling using `try` and `except` blocks to catch and handle errors gracefully.
+  
+- In `test_calculator.py`, write unit tests using the `unittest` framework to test the following:
+  - Test that the `add`, `subtract`, and `multiply` methods return the correct results.
+  - Test that the `divide` method raises a `ValueError` when attempting to divide by zero.
+  
+### 3. Expected Output or Behavior
+- When running the `calculator.py` script, it should not produce any output directly. Instead, it should handle any exceptions that occur during method calls.
+- When running the tests in `test_calculator.py` using the command `python -m unittest test_calculator.py`, you should see output indicating whether the tests passed or failed.
 
-3. **Additional Files Needed**: 
-   - Create a text file named `sample.txt` with the following content:
-     ```
-     Hello, World!
-     This is a sample text file.
-     ```
-   - Create a CSV file named `data.csv` with the following content:
-     ```
-     Name,Age,Occupation
-     Alice,30,Engineer
-     Bob,25,Designer
-     Charlie,35,Teacher
-     ```
-   - Create a JSON file named `data.json` with the following content:
-     ```json
-     {
-       "employees": [
-         {"name": "Alice", "age": 30, "occupation": "Engineer"},
-         {"name": "Bob", "age": 25, "occupation": "Designer"},
-         {"name": "Charlie", "age": 35, "occupation": "Teacher"}
-       ]
-     }
-     ```
+### 4. Hints or Tips for Completing the Task
+- Use `try` and `except` blocks around your method calls in `calculator.py` to catch exceptions.
+- Use `assertEqual` in your unit tests to compare the expected output with the actual output.
+- Remember to import the `unittest` module at the beginning of your `test_calculator.py` file.
+- You can run your tests from the command line to see the results.
 
-## Detailed Requirements for the Task
-
-1. **Reading from Files**:
-   - Read the content of `sample.txt` and print it to the console.
-   - Read the `data.csv` file and print each row as a dictionary.
-   - Read the `data.json` file and print the list of employees.
-
-2. **Writing to Files**:
-   - Create a new text file named `output.txt` and write the following content to it:
-     ```
-     This is an output file.
-     It contains results from the file handling task.
-     ```
-   - Append a new line to `output.txt` that states how many employees were read from the JSON file.
-
-3. **Exception Handling**:
-   - Implement exception handling for all file operations. Use `try`, `except`, and `finally` blocks to handle potential errors (e.g., file not found, permission errors).
-   - Ensure that any opened files are properly closed in the `finally` block.
-
-## Expected Output or Behavior
-
-- When you run `file_manager.py`, you should see the content of `sample.txt`, the rows from `data.csv` printed as dictionaries, and the list of employees from `data.json` printed to the console.
-- The `output.txt` file should be created with the specified content, and it should include the count of employees at the end.
-
-## Hints or Tips for Completing the Task
-
-- Use the built-in `open()` function to handle file operations.
-- For reading CSV files, consider using the `csv` module.
-- For reading JSON files, use the `json` module.
-- Remember to handle exceptions gracefully to avoid crashing your program.
-
-## Additional Resources
-
-- [Python File Handling Documentation](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
-- [Python CSV Module Documentation](https://docs.python.org/3/library/csv.html)
-- [Python JSON Module Documentation](https://docs.python.org/3/library/json.html)
+### 5. Additional Resources
 - [Python Exception Handling Documentation](https://docs.python.org/3/tutorial/errors.html)
+- [Python unittest Documentation](https://docs.python.org/3/library/unittest.html)
+- [Real Python - Unit Testing in Python](https://realpython.com/python-testing/)
+- [Python Official Documentation](https://docs.python.org/3/)
 
-Good luck with your task! Happy coding!
+By completing this task, you will gain practical experience in managing exceptions and writing tests, which are essential skills for any Python developer. Good luck!

@@ -1,50 +1,87 @@
 # Practice Task
 
-# Practice Task: Python Fundamentals
+# Practice Task: Milestone 1 - Python Fundamentals
 
 ## Introduction
-In this practice task, you will create a simple program that simulates a basic inventory management system. This task will help you solidify your understanding of Python fundamentals, including data types, control structures, and functions. By the end of this task, you will have a functional program that can add, remove, and display items in an inventory.
+In this practice task, you will create a simple Python program that simulates a basic shopping cart system. This task will help you solidify your understanding of core Python concepts such as data types, control structures, and functions. By the end of this task, you will have a functional program that allows users to add items to their cart, view the cart, and calculate the total cost.
 
-## Step-by-Step Instructions
+## Project Setup Instructions
 
-### 1. Set Up the Project
-- **Create a new project**: Open your preferred code editor or IDE and create a new project folder named `inventory_management`.
-- **Name the main Python script file**: Inside the `inventory_management` folder, create a new Python file named `inventory.py`.
-- **Additional files**: No additional files are needed for this task.
+1. **Create a New Project:**
+   - Open your preferred code editor or IDE (e.g., VSCode, PyCharm).
+   - Create a new folder for your project named `shopping_cart`.
 
-### 2. Detailed Requirements
-Your program should meet the following requirements:
-1. **Data Structure**: Use a dictionary to represent the inventory, where the keys are item names (strings) and the values are their quantities (integers).
-2. **Functions**:
-   - `add_item(name: str, quantity: int)`: Adds the specified quantity of the item to the inventory. If the item already exists, increase its quantity.
-   - `remove_item(name: str, quantity: int)`: Removes the specified quantity of the item from the inventory. If the quantity exceeds the available amount, display a message indicating insufficient stock.
-   - `display_inventory()`: Displays all items in the inventory along with their quantities.
-3. **Control Structures**: Implement a simple menu that allows the user to choose between adding an item, removing an item, displaying the inventory, or exiting the program.
-4. **User Input**: Use `input()` to get user choices and item details.
+2. **Name the Main Python Script File:**
+   - Inside the `shopping_cart` folder, create a new Python file named `shopping_cart.py`.
 
-### 3. Expected Output or Behavior
-When the program runs, it should display a menu like this:
+3. **Additional Files Needed:**
+   - No additional files are required for this task.
+
+## Detailed Requirements
+
+1. **Data Types and Variables:**
+   - Create a list to hold the items in the shopping cart.
+   - Each item should be represented as a dictionary with the following keys: `name`, `price`, and `quantity`.
+
+2. **Control Structures:**
+   - Implement a menu that allows the user to choose from the following options:
+     1. Add an item to the cart
+     2. View the cart
+     3. Calculate the total cost
+     4. Exit the program
+   - Use `if` statements to handle the user's choice and `while` loops to keep the program running until the user decides to exit.
+
+3. **Functions and Scope:**
+   - Create the following functions:
+     - `add_item(cart)`: Prompts the user for item details and adds the item to the cart.
+     - `view_cart(cart)`: Displays all items in the cart along with their quantities and prices.
+     - `calculate_total(cart)`: Calculates and returns the total cost of items in the cart.
+
+## Expected Output or Behavior
+
+- When the program runs, it should display a menu with options.
+- Based on the user's input, the program should allow them to add items, view the cart, or calculate the total cost.
+- The program should continue to run until the user selects the option to exit.
+
+Example interaction:
 ```
-1. Add Item
-2. Remove Item
-3. Display Inventory
+Welcome to the Shopping Cart!
+1. Add an item to the cart
+2. View the cart
+3. Calculate the total cost
 4. Exit
+Please choose an option: 1
+Enter item name: Apple
+Enter item price: 0.5
+Enter item quantity: 3
+Item added to cart!
+
+1. Add an item to the cart
+2. View the cart
+3. Calculate the total cost
+4. Exit
+Please choose an option: 2
+Your cart:
+- Apple: 3 x $0.5
+
+1. Add an item to the cart
+2. View the cart
+3. Calculate the total cost
+4. Exit
+Please choose an option: 3
+Total cost: $1.5
 ```
-Based on the user's choice, the program should:
-- Prompt for item details if adding or removing an item.
-- Display the current inventory when requested.
-- Exit the program when the user chooses to do so.
 
-### 4. Hints or Tips for Completing the Task
-- Start by defining the main structure of your program, including the inventory dictionary and the functions.
-- Use a loop to keep the menu running until the user decides to exit.
-- Remember to handle cases where the user might input invalid data (e.g., entering a non-integer for quantity).
-- Test each function individually to ensure they work as expected before integrating them into the menu.
+## Hints or Tips for Completing the Task
 
-### 5. Additional Resources
+- Use a `while True` loop to keep the menu running until the user chooses to exit.
+- Make sure to handle user input carefully, especially when converting prices and quantities to the appropriate data types.
+- Consider using a `try-except` block to handle potential errors when converting input values.
+
+## Additional Resources
+
 - [Python Official Documentation](https://docs.python.org/3/)
-- [W3Schools Python Functions](https://www.w3schools.com/python/python_functions.asp)
-- [Real Python - Python Dictionaries](https://realpython.com/python-dicts/)
-- [Python Control Flow](https://docs.python.org/3/tutorial/controlflow.html)
+- [W3Schools Python Tutorial](https://www.w3schools.com/python/)
+- [Real Python - Python Functions](https://realpython.com/defining-functions-in-python/)
 
-By completing this task, you will gain practical experience with Python fundamentals that will serve as a strong foundation for your programming journey. Happy coding!
+Good luck, and have fun coding your shopping cart program!
