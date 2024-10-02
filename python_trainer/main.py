@@ -27,8 +27,11 @@ def main():
     if generate_task:
         click.echo("Generating practice task for the first milestone...")
         # TODO: Implement practice task generation
+        click.echo("Practice task generation is not yet implemented. This feature will be available in a future update.")
     else:
         click.echo("You can generate the practice task later by running this command again.")
+    
+    click.echo("Thank you for using the Python Trainer App!")
 
 if __name__ == "__main__":
     main()
