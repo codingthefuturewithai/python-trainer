@@ -25,13 +25,13 @@ def get_training_plan(prompt: str) -> str:
     """
     try:
         response = openai.Completion.create(
-            model="gpt-4o-mini",
+            model="text-davinci-003",
             prompt=prompt,
             max_tokens=1000,
             n=1,
             stop=None,
             temperature=0.7
         )
-        return response.choices[0].message.content.strip()
+        return response.choices[0].text.strip()
     except Exception as e:
         return f"Error: Unable to generate training plan. {str(e)}"
