@@ -11,6 +11,7 @@ def generate_task_prompt(milestone: dict) -> str:
         str: A formatted prompt for the OpenAI GPT model.
     """
     prompt = f"""Create a practice task for the following Python milestone:
+Milestone Name: {milestone['name']}
 Objective: {milestone['objective']}
 Topics to Cover: {', '.join(milestone['topics'])}
 

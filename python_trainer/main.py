@@ -45,21 +45,14 @@ def main():
     generate_task = prompt_yes_no("Would you like to generate the practice task for the first milestone?")
     if generate_task:
         click.echo("Generating practice task for the first milestone...")
-        # Parse the training plan to extract the first milestone's details
-        try:
-            training_plan_json = json.loads(training_plan)
-        except json.JSONDecodeError as e:
-            click.echo(f"Error: Training plan is not valid JSON. {str(e)}")
-            return
-
-        try:
-            first_milestone = training_plan_json['milestones'][0]
+        # Extract the first milestone's details from the TrainingPlan object
+        if training_plan.milestones:
+            first_milestone = training_plan.milestones[0]
             click.echo(f"First Milestone: {first_milestone}")
-        except (KeyError, IndexError) as e:
-            click.echo(f"Error: Unable to extract first milestone details from the training plan. {str(e)}")
+            task_prompt = generate_task_prompt(first_milestone.dict())
+        else:
+            click.echo("Error: No milestones found in the training plan.")
             return
-
-        task_prompt = generate_task_prompt(first_milestone)
         task = get_training_plan(task_prompt)
         click.echo("\nGenerated Practice Task for the First Milestone:")
         click.echo(task)
