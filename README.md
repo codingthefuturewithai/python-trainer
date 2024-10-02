@@ -42,6 +42,12 @@ The Python Trainer App is a command-line tool designed to create personalized Py
    ```
 
 4. Set up your OpenAI API key:
+   - If you don't have an OpenAI API key, follow these steps to obtain one:
+     1. Go to https://platform.openai.com/signup
+     2. Create an account or sign in if you already have one
+     3. Once logged in, go to https://platform.openai.com/account/api-keys
+     4. Click on "Create new secret key" to generate a new API key
+     5. Copy the generated API key (you won't be able to see it again)
    - Copy the `.env_example` file to create a new `.env` file in the project root directory:
      ```
      cp .env_example .env
@@ -50,6 +56,7 @@ The Python Trainer App is a command-line tool designed to create personalized Py
      ```
      OPENAI_API_KEY=your_actual_api_key_here
      ```
+   - Keep your API key confidential and never share it publicly
 
 5. Run the application:
    ```
