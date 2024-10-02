@@ -17,10 +17,10 @@ The Python Trainer App is a command-line tool designed to create personalized Py
 1. **main.py**: The entry point of the application, orchestrating the flow of the program.
 2. **cli.py**: Handles command-line interface interactions and user input collection.
 3. **config.py**: Defines the UserInfo model using Pydantic for structured user data.
-4. **prompt_generator.py**: Generates prompts for the OpenAI API based on user information.
+4. **prompt_generator.py**: Generates prompts for the OpenAI API based on user information and milestone details.
 5. **openai_utils.py**: Manages interactions with the OpenAI API, including sending requests and parsing responses.
 6. **schemas.py**: Defines Pydantic models for the training plan structure.
-7. **utils/file_utils.py**: Handles file operations, such as saving the training plan to a file.
+7. **utils/file_utils.py**: Handles file operations, such as creating directories and saving files.
 
 ## How to Build and Run
 
@@ -61,20 +61,22 @@ The Python Trainer App is a command-line tool designed to create personalized Py
 ## Usage
 
 When you run the application, it will:
-1. Prompt you for information about your programming experience, learning goals, and preferred learning style.
-2. Generate a personalized Python training plan using the OpenAI API.
-3. Save the training plan as a Markdown file.
-4. Offer to generate a practice task for the first milestone.
-5. If requested, generate and save the practice task as a separate Markdown file.
-
-The generated training plan and practice task will be saved in the current working directory as `training_plan.md` and `Milestone_1_Practice_Task.md` respectively.
+1. Create a dedicated output directory named `python_trainer_output` in the current working directory.
+2. Prompt you for information about your programming experience, learning goals, and preferred learning style.
+3. Generate a personalized Python training plan using the OpenAI API.
+4. Save the training plan as a Markdown file in the output directory.
+5. Offer to generate a practice task for the first milestone.
+6. If requested, generate and save the practice task as a separate Markdown file in the output directory.
+7. Offer to generate practice tasks for all remaining milestones.
+8. If requested, generate and save practice tasks for all remaining milestones as separate Markdown files in the output directory.
 
 ## Example Output
 
-After running the application, you'll find two new files in your current directory:
+After running the application, you'll find the following files in the `python_trainer_output` directory:
 
 1. `training_plan.md`: Contains the personalized Python training plan with multiple milestones.
 2. `Milestone_1_Practice_Task.md`: Contains a practice task for the first milestone (if you chose to generate it).
+3. `Milestone_2_Practice_Task.md`, `Milestone_3_Practice_Task.md`, etc.: Contains practice tasks for subsequent milestones (if you chose to generate them).
 
 These files will be in Markdown format, making them easy to read and share.
 
