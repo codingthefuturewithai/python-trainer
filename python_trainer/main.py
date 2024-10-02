@@ -4,7 +4,7 @@ from python_trainer.config import UserInfo
 from python_trainer.cli import gather_user_info, prompt_yes_no
 from python_trainer.prompt_generator import generate_prompt, generate_task_prompt
 from python_trainer.openai_utils import get_training_plan, get_practice_task
-from python_trainer.utils.file_utils import save_training_plan, create_output_directory
+from python_trainer.utils.file_utils import save_training_plan, save_practice_task, create_output_directory
 
 def format_training_plan(training_plan):
     """
@@ -85,8 +85,13 @@ def main():
     generate_all_tasks = prompt_yes_no("Would you like to generate practice tasks for all remaining milestones? (yes/no)")
     if generate_all_tasks:
         click.echo("Generating practice tasks for all remaining milestones...")
-        # TODO: Implement the generation of practice tasks for all remaining milestones
-        click.echo("This feature will be implemented in the next user story (POC-10).")
+        for i, milestone in enumerate(training_plan.milestones[1:], start=2):  # Start from the second milestone
+            click.echo(f"Generating practice task for Milestone {i}...")
+            task_prompt = generate_task_prompt(milestone.dict())
+            task = get_practice_task(task_prompt)
+            task_save_path = save_practice_task(task, i)
+            click.echo(f"Practice task for Milestone {i} saved to {task_save_path}")
+        click.echo("All practice tasks have been generated and saved.")
     else:
         click.echo("You can generate practice tasks for the remaining milestones later by running this command again.")
 

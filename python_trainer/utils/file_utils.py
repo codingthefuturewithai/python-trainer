@@ -29,3 +29,23 @@ def save_training_plan(training_plan: str, filename: str) -> Path:
         f.write(training_plan)
     
     return save_path
+
+def save_practice_task(task: str, milestone_number: int) -> Path:
+    """
+    Save a practice task to a Markdown file in the dedicated output directory.
+
+    Args:
+        task (str): The practice task content as a string.
+        milestone_number (int): The milestone number for this practice task.
+
+    Returns:
+        Path: The path where the file was saved.
+    """
+    output_dir = create_output_directory()
+    filename = f"Milestone_{milestone_number}_Practice_Task.md"
+    save_path = output_dir / filename
+    
+    with open(save_path, 'w') as f:
+        f.write(task)
+    
+    return save_path
