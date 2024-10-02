@@ -1,84 +1,50 @@
-### Practice Task for Milestone 1: Introduction to Python
+# Practice Task
 
-#### Task Overview
-In this practice task, you will familiarize yourself with the basics of Python syntax, set up your Python environment, and run your first Python script. You will also learn how to use comments and documentation in your code.
+# Practice Task: Python Fundamentals
 
-#### Instructions
+## Introduction
+In this practice task, you will create a simple program that simulates a basic inventory management system. This task will help you solidify your understanding of Python fundamentals, including data types, control structures, and functions. By the end of this task, you will have a functional program that can add, remove, and display items in an inventory.
 
-1. **Setting Up Your Python Environment**
-   - If you haven't already, download and install Python from the official website: [python.org](https://www.python.org/downloads/).
-   - Verify your installation by opening a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and typing:
-     ```bash
-     python --version
-     ```
-   - You should see the version of Python you installed. If you see an error, please troubleshoot your installation.
+## Step-by-Step Instructions
 
-2. **Creating Your First Python Script**
-   - Open a text editor (like Notepad, VSCode, or PyCharm) and create a new file named `hello_world.py`.
-   - In this file, write the following code:
-     ```python
-     # This is my first Python script
-     print("Hello, World!")
-     ```
-   - Save the file.
+### 1. Set Up the Project
+- **Create a new project**: Open your preferred code editor or IDE and create a new project folder named `inventory_management`.
+- **Name the main Python script file**: Inside the `inventory_management` folder, create a new Python file named `inventory.py`.
+- **Additional files**: No additional files are needed for this task.
 
-3. **Running Your Python Script**
-   - Open your terminal and navigate to the directory where you saved `hello_world.py`. You can use the `cd` command to change directories. For example:
-     ```bash
-     cd path/to/your/directory
-     ```
-   - Run your script by typing:
-     ```bash
-     python hello_world.py
-     ```
-   - **Expected Output:**
-     ```
-     Hello, World!
-     ```
+### 2. Detailed Requirements
+Your program should meet the following requirements:
+1. **Data Structure**: Use a dictionary to represent the inventory, where the keys are item names (strings) and the values are their quantities (integers).
+2. **Functions**:
+   - `add_item(name: str, quantity: int)`: Adds the specified quantity of the item to the inventory. If the item already exists, increase its quantity.
+   - `remove_item(name: str, quantity: int)`: Removes the specified quantity of the item from the inventory. If the quantity exceeds the available amount, display a message indicating insufficient stock.
+   - `display_inventory()`: Displays all items in the inventory along with their quantities.
+3. **Control Structures**: Implement a simple menu that allows the user to choose between adding an item, removing an item, displaying the inventory, or exiting the program.
+4. **User Input**: Use `input()` to get user choices and item details.
 
-4. **Understanding Basic Syntax and Indentation**
-   - Modify your script to include a simple calculation and print the result. Update your `hello_world.py` file to look like this:
-     ```python
-     # This is my first Python script
-     print("Hello, World!")
+### 3. Expected Output or Behavior
+When the program runs, it should display a menu like this:
+```
+1. Add Item
+2. Remove Item
+3. Display Inventory
+4. Exit
+```
+Based on the user's choice, the program should:
+- Prompt for item details if adding or removing an item.
+- Display the current inventory when requested.
+- Exit the program when the user chooses to do so.
 
-     # Performing a simple calculation
-     a = 5
-     b = 10
-     sum = a + b
-     print("The sum of", a, "and", b, "is:", sum)
-     ```
-   - Run the script again. 
-   - **Expected Output:**
-     ```
-     Hello, World!
-     The sum of 5 and 10 is: 15
-     ```
+### 4. Hints or Tips for Completing the Task
+- Start by defining the main structure of your program, including the inventory dictionary and the functions.
+- Use a loop to keep the menu running until the user decides to exit.
+- Remember to handle cases where the user might input invalid data (e.g., entering a non-integer for quantity).
+- Test each function individually to ensure they work as expected before integrating them into the menu.
 
-5. **Using Comments and Documentation**
-   - Add comments to your code to explain what each part does. Your updated script should look like this:
-     ```python
-     # This is my first Python script
-     print("Hello, World!")  # Print a greeting
+### 5. Additional Resources
+- [Python Official Documentation](https://docs.python.org/3/)
+- [W3Schools Python Functions](https://www.w3schools.com/python/python_functions.asp)
+- [Real Python - Python Dictionaries](https://realpython.com/python-dicts/)
+- [Python Control Flow](https://docs.python.org/3/tutorial/controlflow.html)
 
-     # Performing a simple calculation
-     a = 5  # First number
-     b = 10  # Second number
-     sum = a + b  # Calculate the sum
-     print("The sum of", a, "and", b, "is:", sum)  # Print the result
-     ```
-   - Run the script again to ensure it still works correctly.
-
-6. **Exploring Python Documentation**
-   - Visit the official Python documentation at [docs.python.org](https://docs.python.org/3/).
-   - Read the introductory section to understand more about Python's features and capabilities.
-
-#### Hints
-- If you encounter any errors while running your script, carefully check for typos or indentation issues. Python is sensitive to indentation.
-- Use `#` to add comments in your code. Comments are ignored by the Python interpreter and are useful for explaining your code to others (or yourself in the future).
-
-#### Submission
-- Once you have completed the task, ensure your `hello_world.py` file is saved with all the modifications.
-- You can take a screenshot of your terminal showing the output of your script and submit it as proof of completion.
-
-Good luck, and enjoy your journey into the world of Python programming!
+By completing this task, you will gain practical experience with Python fundamentals that will serve as a strong foundation for your programming journey. Happy coding!
