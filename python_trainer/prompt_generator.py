@@ -61,33 +61,29 @@ def generate_prompt(user_info: UserInfo) -> str:
     """
     prompt = f"""Create a Python training plan for a user with the following profile:
 
-CRITICAL INFORMATION - READ CAREFULLY:
-User's preferred learning style: {user_info.learning_style}
-
-Other user details:
+User details:
 Experience level: {user_info.programming_experience}
 Python knowledge: {user_info.python_experience or 'Not specified'}
 Learning goal: {user_info.learning_goal}
 
-STRICT REQUIREMENTS:
-1. The entire training plan MUST be designed around the user's preferred learning style of "{user_info.learning_style}".
-2. DO NOT mention or incorporate any other learning style in the plan.
-3. If the learning style is "Reading and theory-based learning", the plan should focus heavily on theoretical concepts, books, documentation, and written exercises. It should NOT include hands-on projects or practical coding tasks unless explicitly requested by the user.
-4. If the learning style is "Hands-on projects", the plan should focus on practical coding exercises and project-based learning. It should minimize theoretical reading unless necessary for project completion.
+REQUIREMENTS:
+1. The training plan should focus on practical, hands-on learning with coding exercises and projects.
+2. Include theoretical concepts where necessary, but prioritize learning through doing.
+3. Each milestone should include both conceptual understanding and practical application.
 
 The plan should include several milestones with milestone names, objectives, and topics to cover. 
-Each milestone MUST be tailored to the user's experience level and learning style.
+Each milestone MUST be tailored to the user's experience level and learning goal.
 
 Provide the response in the following JSON format:
 
 {{
-    "background": "A detailed paragraph explaining the rationale behind the training plan. This MUST explicitly mention and accommodate the user's preferred learning style of '{user_info.learning_style}'. Do not mention any other learning style.",
+    "background": "A detailed paragraph explaining the rationale behind the training plan based on the user's profile.",
     "milestones": [
         {{
             "name": "Milestone name",
-            "objective": "Milestone objective (must align with the '{user_info.learning_style}' learning style)",
+            "objective": "Milestone objective",
             "topics": ["Topic 1", "Topic 2", "Topic 3"],
-            "approach": "A detailed description of how this milestone will be tackled using the '{user_info.learning_style}' approach"
+            "approach": "A detailed description of how this milestone will be tackled, including both conceptual learning and hands-on practice"
         }},
         ...
     ]

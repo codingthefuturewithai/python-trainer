@@ -32,7 +32,7 @@ def gather_user_info() -> UserInfo:
     """Gather user information through CLI prompts.
 
     This function interacts with the user to collect information regarding their
-    programming and Python experience, learning goals, and preferred learning style. 
+    programming and Python experience, and learning goals. 
     It utilizes prompt functions to ensure the user selects appropriate options 
     or provides their input through command-line interface prompts.
 
@@ -41,7 +41,6 @@ def gather_user_info() -> UserInfo:
             - programming_experience (str): The user's level of programming experience.
             - python_experience (str or None): The user's level of Python experience or None if not applicable.
             - learning_goal (str): The user's stated learning goal for Python.
-            - learning_style (str): The user's preferred style of learning.
     """
     programming_experience = prompt_with_choices(
         "What is your programming experience?",
@@ -57,14 +56,8 @@ def gather_user_info() -> UserInfo:
     
     learning_goal = click.prompt("What is your learning goal for Python?", type=str)
     
-    learning_style = prompt_with_choices(
-        "What is your preferred learning style?",
-        ["Hands-on projects", "Reading and theory-based learning"]
-    )
-    
     return UserInfo(
         programming_experience=programming_experience,
         python_experience=python_experience,
-        learning_goal=learning_goal,
-        learning_style=learning_style
+        learning_goal=learning_goal
     )
