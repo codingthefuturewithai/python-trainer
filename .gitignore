@@ -30,3 +30,6 @@ pip-lock.txt
 dist/
 build/
 *.egg-info/
+
+# terminalizer session recorder default output file
+session.yml
