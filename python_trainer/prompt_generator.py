@@ -65,18 +65,22 @@ Python knowledge: {user_info.python_experience or 'Not specified'}
 Learning goal: {user_info.learning_goal}
 Preferred learning style: {user_info.learning_style}
 
+IMPORTANT: The user's preferred learning style is "{user_info.learning_style}". This must be reflected in the training plan.
+
 The plan should include several milestones with milestone names, objectives, and topics to cover. 
-Each milestone should be tailored to the user's experience level and learning style.
-Ensure that the background and milestones reflect the user's preferred learning style of "{user_info.learning_style}".
+Each milestone MUST be tailored to the user's experience level and learning style.
+DO NOT assume a hands-on learning style unless explicitly specified by the user.
+
 Provide the response in the following JSON format:
 
 {{
-    "background": "A brief paragraph explaining the rationale behind the training plan based on the user's profile, including their preferred learning style",
+    "background": "A detailed paragraph explaining the rationale behind the training plan. This MUST explicitly mention and accommodate the user's preferred learning style of '{user_info.learning_style}'.",
     "milestones": [
         {{
             "name": "Milestone name",
-            "objective": "Milestone objective",
-            "topics": ["Topic 1", "Topic 2", "Topic 3"]
+            "objective": "Milestone objective (should align with the user's learning style)",
+            "topics": ["Topic 1", "Topic 2", "Topic 3"],
+            "approach": "A brief description of how this milestone aligns with the '{user_info.learning_style}' learning style"
         }},
         ...
     ]
