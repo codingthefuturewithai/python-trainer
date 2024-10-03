@@ -60,27 +60,34 @@ def generate_prompt(user_info: UserInfo) -> str:
         str: A formatted prompt for the OpenAI GPT model.
     """
     prompt = f"""Create a Python training plan for a user with the following profile:
+
+CRITICAL INFORMATION - READ CAREFULLY:
+User's preferred learning style: {user_info.learning_style}
+
+Other user details:
 Experience level: {user_info.programming_experience}
 Python knowledge: {user_info.python_experience or 'Not specified'}
 Learning goal: {user_info.learning_goal}
-Preferred learning style: {user_info.learning_style}
 
-IMPORTANT: The user's preferred learning style is "{user_info.learning_style}". This must be reflected in the training plan.
+STRICT REQUIREMENTS:
+1. The entire training plan MUST be designed around the user's preferred learning style of "{user_info.learning_style}".
+2. DO NOT mention or incorporate any other learning style in the plan.
+3. If the learning style is "Reading and theory-based learning", the plan should focus heavily on theoretical concepts, books, documentation, and written exercises. It should NOT include hands-on projects or practical coding tasks unless explicitly requested by the user.
+4. If the learning style is "Hands-on projects", the plan should focus on practical coding exercises and project-based learning. It should minimize theoretical reading unless necessary for project completion.
 
 The plan should include several milestones with milestone names, objectives, and topics to cover. 
 Each milestone MUST be tailored to the user's experience level and learning style.
-DO NOT assume a hands-on learning style unless explicitly specified by the user.
 
 Provide the response in the following JSON format:
 
 {{
-    "background": "A detailed paragraph explaining the rationale behind the training plan. This MUST explicitly mention and accommodate the user's preferred learning style of '{user_info.learning_style}'.",
+    "background": "A detailed paragraph explaining the rationale behind the training plan. This MUST explicitly mention and accommodate the user's preferred learning style of '{user_info.learning_style}'. Do not mention any other learning style.",
     "milestones": [
         {{
             "name": "Milestone name",
-            "objective": "Milestone objective (should align with the user's learning style)",
+            "objective": "Milestone objective (must align with the '{user_info.learning_style}' learning style)",
             "topics": ["Topic 1", "Topic 2", "Topic 3"],
-            "approach": "A brief description of how this milestone aligns with the '{user_info.learning_style}' learning style"
+            "approach": "A detailed description of how this milestone will be tackled using the '{user_info.learning_style}' approach"
         }},
         ...
     ]
