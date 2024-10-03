@@ -30,6 +30,8 @@ def generate_task_prompt(milestone: dict, user_info: UserInfo, training_plan: Tr
 
     1. Concept Explanations:
        - Provide clear and concise explanations of the key concepts related to this milestone.
+       - Ensure that all concepts discussed in this section are related to the corresponding practice task and 
+         necessary for the learner to understand to accomplish that task.
        - Use examples to illustrate these concepts.
        - Explain how these concepts are used in real-world Python programming.
 
