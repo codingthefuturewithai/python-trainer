@@ -56,7 +56,7 @@ def send_openai_request(prompt: str) -> str:
     """
     try:
         response = openai.chat.completions.create(
-            model="gpt-4",  # Use a model that can handle larger context
+            model="gpt-4o-mini",  # Use a model that can handle larger context
             messages=[
                 {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans and practice tasks."},
                 {"role": "user", "content": prompt}
