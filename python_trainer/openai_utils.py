@@ -56,12 +56,13 @@ def send_openai_request(prompt: str) -> str:
     """
     try:
         response = openai.chat.completions.create(
-            model="gpt-4o-mini",  # Updated to a more recent model
+            model="gpt-4",  # Use a model that can handle larger context
             messages=[
                 {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans and practice tasks."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.1,
+            max_tokens=2000,  # Increase max tokens to allow for longer responses
         )
         return response.choices[0].message.content.strip()
     except Exception as e:

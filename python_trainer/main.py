@@ -74,7 +74,7 @@ def main():
         if training_plan.milestones:
             first_milestone = training_plan.milestones[0]
             click.echo(f"First Milestone: {first_milestone}")
-            task_prompt = generate_task_prompt(first_milestone.dict())
+            task_prompt = generate_task_prompt(first_milestone.dict(), user_info, training_plan)
         else:
             click.echo("Error: No milestones found in the training plan.")
             return
@@ -98,7 +98,7 @@ def main():
         click.echo("Generating practice tasks for all remaining milestones...")
         for i, milestone in enumerate(training_plan.milestones[1:], start=2):  # Start from the second milestone
             click.echo(f"Generating practice task for Milestone {i}...")
-            task_prompt = generate_task_prompt(milestone.dict())
+            task_prompt = generate_task_prompt(milestone.dict(), user_info, training_plan)
             task = get_practice_task(task_prompt)
             task_save_path = save_practice_task(task, i)
             click.echo(f"Practice task for Milestone {i} saved to {task_save_path}")
