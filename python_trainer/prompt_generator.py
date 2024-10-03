@@ -1,4 +1,5 @@
 from python_trainer.config import UserInfo
+from python_trainer.schemas import TrainingPlan
 
 import json
 
