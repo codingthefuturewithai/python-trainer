@@ -1,62 +1,103 @@
-# Practice Task
+# Concept Explanations and Practice Task
 
-# Practice Task: Milestone 2 - Data Structures and File Handling
+# Control Flow and Functions: Practice Task
 
-## Introduction
-In this practice task, you will create a simple contact management system that utilizes Python's built-in data structures and file handling capabilities. You will learn how to store, retrieve, and manipulate contact information using lists, dictionaries, and sets, while also practicing reading from and writing to files.
+## 1. Concept Explanations
 
-## Project Setup Instructions
+### Conditional Statements
+Conditional statements allow you to execute specific blocks of code based on certain conditions. The primary conditional statements in Python are `if`, `elif`, and `else`. They are used to make decisions in your code.
 
-1. **Create a New Project**: 
-   - Open your preferred code editor or IDE (e.g., VSCode, PyCharm).
-   - Create a new folder for your project named `contact_manager`.
+Example:
+```python
+age = 18
+if age >= 18:
+    print("You are eligible to vote.")
+else:
+    print("You are not eligible to vote.")
+```
 
-2. **Name the Main Python Script File**: 
-   - Inside the `contact_manager` folder, create a new Python file named `main.py`.
+**Real-world use:** Conditional statements are used in applications to handle different user inputs or scenarios, such as determining access rights based on user roles.
 
-3. **Additional Files Needed**: 
-   - Create a text file named `contacts.txt` in the same folder. This file will be used to store the contact information.
+### Loops
+Loops are used to execute a block of code repeatedly. Python provides `for` loops and `while` loops.
 
-## Detailed Requirements for the Task
+Example of a `for` loop:
+```python
+for i in range(5):
+    print("Iteration", i)
+```
 
-1. **Functionality**:
-   - The program should allow users to:
-     - Add a new contact (name, phone number, email).
-     - View all contacts.
-     - Search for a contact by name.
-     - Delete a contact by name.
-     - Save contacts to `contacts.txt` and load them from this file when the program starts.
+Example of a `while` loop:
+```python
+count = 0
+while count < 5:
+    print("Count is", count)
+    count += 1
+```
 
-2. **Data Structures**:
-   - Use a list to store contacts.
-   - Each contact should be represented as a dictionary with keys: `name`, `phone`, and `email`.
-   - Use a set to ensure that contact names are unique.
+**Real-world use:** Loops are used for tasks that require repetition, such as processing items in a list or reading lines from a file.
 
-3. **File Handling**:
-   - Implement functions to read from and write to `contacts.txt`.
-   - When writing to the file, save each contact on a new line in the format: `name,phone,email`.
-   - When reading from the file, load the contacts into the list and set.
+### Functions
+Functions allow you to encapsulate reusable code blocks, making your code modular and organized. You define a function using the `def` keyword.
 
-## Expected Output or Behavior
+Example:
+```python
+def greet(name):
+    return f"Hello, {name}!"
 
-- When the program runs, it should display a menu with options to add, view, search, delete contacts, and exit.
-- After performing any operation, the program should return to the menu.
-- Upon exiting, the program should save all contacts to `contacts.txt`.
-- If the program is run again, it should load existing contacts from `contacts.txt`.
+print(greet("Alice"))
+```
 
-## Hints or Tips for Completing the Task
+**Real-world use:** Functions are used to perform specific tasks, such as data validation or calculations, and can be reused across different parts of a program.
 
-- Use `input()` to gather user input for adding and searching contacts.
-- Use a loop to display the menu and handle user choices.
-- Remember to handle cases where a contact might not be found when searching or deleting.
-- Use exception handling when reading from or writing to files to manage potential errors (e.g., file not found).
-- Consider using list comprehensions for filtering contacts.
+### Scope and Lifetime of Variables
+Scope refers to the visibility of variables in different parts of your code. Variables defined inside a function are local to that function, while variables defined outside are global.
 
-## Additional Resources
+Example:
+```python
+def my_function():
+    local_var = "I'm local"
+    print(local_var)
 
-- [Python Lists Documentation](https://docs.python.org/3/tutorial/introduction.html#lists)
-- [Python Dictionaries Documentation](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
-- [Python File Handling Documentation](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
-- [Python Sets Documentation](https://docs.python.org/3/tutorial/datastructures.html#sets)
+global_var = "I'm global"
+my_function()
+print(global_var)
+```
 
-By completing this task, you will gain practical experience with data structures and file handling in Python, which are essential skills for any programmer. Happy coding!
+**Real-world use:** Understanding variable scope helps prevent errors related to variable access and modification, especially in larger codebases.
+
+## 2. Practice Task
+
+### a. Task Introduction
+Create a simple command-line Python application that simulates a basic calculator. This task will help you practice using control flow statements and functions to build a reusable, modular application.
+
+### b. Project Setup Instructions
+- **Create a new project directory** called `simple_calculator`.
+- **Main Python script file:** `calculator.py`
+- **No additional files are needed**.
+
+### c. Detailed Requirements
+1. **Create a function** for each arithmetic operation: addition, subtraction, multiplication, and division.
+   - Each function should take two arguments and return the result.
+2. **Implement a loop** that allows the user to perform multiple calculations until they choose to exit.
+3. **Use conditional statements** to determine which operation to perform based on user input.
+4. **Handle division by zero** by displaying an appropriate error message instead of crashing.
+
+### d. Expected Output or Behavior
+- The program should display a menu with options for addition, subtraction, multiplication, division, and exit.
+- After choosing an operation, the user should be prompted to enter two numbers.
+- The program should display the result of the operation and return to the menu.
+- If the user attempts to divide by zero, an error message should be displayed, and the menu should be shown again.
+- The program should continue running until the user selects the exit option.
+
+### e. Hints or Tips for Completing the Task
+- Use a `while` loop to keep the program running until the user decides to exit.
+- Use `input()` to collect user input and `int()` or `float()` to convert it to a number.
+- Organize your functions at the top of the file and call them inside your loop based on user input.
+
+### f. Additional Resources
+- [Python Official Documentation on Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+- [Real Python: Python Conditional Statements](https://realpython.com/python-conditional-statements/)
+- [W3Schools: Python While Loops](https://www.w3schools.com/python/python_while_loops.asp)
+
+This practice task will not only solidify your understanding of control flow and functions but also demonstrate how these concepts are applied in building a simple, interactive Python application.

@@ -1,91 +1,70 @@
-# Practice Task
+# Concept Explanations and Practice Task
 
-# Practice Task: Object-Oriented Programming in Python
+# Python Training Plan: Data Structures Milestone
 
-## Introduction
-In this practice task, you will create a simple library management system using Object-Oriented Programming (OOP) principles in Python. This task will help you understand how to define classes and objects, implement inheritance and polymorphism, and utilize encapsulation and abstraction in your code.
+## 1. Concept Explanations
 
-## Project Setup Instructions
+### Lists
+- **Definition**: A list is a collection of items in a particular order. Lists are mutable, meaning you can change their content without changing their identity.
+- **Example**: `fruits = ['apple', 'banana', 'cherry']`
+- **Usage**: Lists are used to store multiple items in a single variable, manage collections of items, and iterate over them in loops. They support operations like appending, removing, and sorting.
 
-1. **Create a New Project**: 
-   - Create a new directory for your project called `library_management_system`.
+### Tuples
+- **Definition**: A tuple is similar to a list, but it is immutable. Once a tuple is created, it cannot be modified.
+- **Example**: `coordinates = (10, 20)`
+- **Usage**: Tuples are used to store collections of items that should not change. They are often used to represent fixed collections of items, like coordinates.
 
-2. **Name the Main Python Script File**: 
-   - Inside the `library_management_system` directory, create a file named `main.py`.
+### Dictionaries
+- **Definition**: A dictionary is a collection of key-value pairs. Each key is unique, and values can be accessed using their keys.
+- **Example**: `student = {'name': 'Alice', 'age': 21}`
+- **Usage**: Dictionaries are used to store data values like a map, where you can quickly retrieve the value associated with a specific key. Useful for structured data storage.
 
-3. **Additional Files Needed**: 
-   - You will also create a file named `library.py` to define your classes.
+### Sets
+- **Definition**: A set is an unordered collection of unique items. Sets are mutable, but they do not allow duplicate values.
+- **Example**: `unique_numbers = {1, 2, 3}`
+- **Usage**: Sets are used to store unique items and perform operations like union, intersection, and difference. They are useful for eliminating duplicate entries.
 
-## Detailed Requirements
+### Real-world Application
+These data structures are fundamental in real-world Python applications for organizing and managing data. Lists and dictionaries are commonly used in data processing, while sets can be used for operations requiring unique elements. Tuples are frequently used for function returns and fixed collections of objects.
 
-1. **Define Classes**:
-   - Create a base class called `Book` with the following attributes:
-     - `title` (string)
-     - `author` (string)
-     - `isbn` (string)
-     - `available` (boolean, default to `True`)
-   - Implement methods in the `Book` class:
-     - `__str__`: to return a string representation of the book.
-     - `borrow`: to change the `available` status to `False`.
-     - `return_book`: to change the `available` status to `True`.
+## 2. Practice Task
 
-2. **Create a Derived Class**:
-   - Create a derived class called `EBook` that inherits from `Book` and adds the following attribute:
-     - `file_size` (float, in MB)
-   - Override the `__str__` method to include the `file_size`.
+### a. Introduction to the Task
+Create a Python script that manages a simple inventory system using the four main data structures: lists, tuples, dictionaries, and sets. This task will help you understand how to implement and manipulate these data structures in a practical context.
 
-3. **Implement a Library Class**:
-   - Create a class called `Library` that contains:
-     - A list to hold `Book` and `EBook` objects.
-     - Methods to:
-       - `add_book(book)`: to add a book to the library.
-       - `borrow_book(isbn)`: to borrow a book by its ISBN.
-       - `return_book(isbn)`: to return a book by its ISBN.
-       - `list_books()`: to print all books in the library.
+### b. Step-by-step Instructions
+- **Project Setup**: Create a new directory named `inventory_system`.
+- **Main Script File**: Inside the `inventory_system` directory, create a Python script named `inventory.py`.
 
-4. **Main Functionality**:
-   - In `main.py`, create an instance of `Library`.
-   - Add at least two `Book` objects and two `EBook` objects to the library.
-   - Demonstrate borrowing and returning books, and list all books in the library.
+### c. Detailed Requirements
+1. **Inventory Management**:
+   - Use a **list** to store items currently in the inventory.
+   - Each item should be represented as a **tuple** containing item name and quantity (e.g., `('apple', 10)`).
 
-## Expected Output or Behavior
-When you run `main.py`, you should see output similar to the following:
+2. **Operations**:
+   - Add new items or update quantities of existing items.
+   - Remove items from the inventory.
+   - Display all items in the inventory.
 
-```
-Books in the library:
-Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 1234567890, Available: True
-Title: 1984, Author: George Orwell, ISBN: 0987654321, Available: True
-Title: Python Programming, Author: John Doe, ISBN: 1122334455, Available: True, File Size: 1.5 MB
-Title: Data Science 101, Author: Jane Smith, ISBN: 5544332211, Available: True, File Size: 2.0 MB
+3. **Search Functionality**:
+   - Use a **dictionary** to map item names to their tuples for quick lookup.
+   - Implement a search function that returns the quantity of a specific item.
 
-Borrowing '1984'...
-Book borrowed successfully.
+4. **Unique Categories**:
+   - Use a **set** to maintain a collection of unique item categories (e.g., `fruits`, `vegetables`).
 
-Books in the library after borrowing:
-Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 1234567890, Available: True
-Title: 1984, Author: George Orwell, ISBN: 0987654321, Available: False
-Title: Python Programming, Author: John Doe, ISBN: 1122334455, Available: True, File Size: 1.5 MB
-Title: Data Science 101, Author: Jane Smith, ISBN: 5544332211, Available: True, File Size: 2.0 MB
+### d. Expected Output or Behavior
+- The script should allow users to add, remove, and search for items.
+- Display a summary of the inventory when requested, showing all items, their quantities, and categories.
 
-Returning '1984'...
-Book returned successfully.
+### e. Hints or Tips for Completing the Task
+- Use functions to encapsulate different operations (e.g., `add_item`, `remove_item`, `search_item`).
+- Think carefully about how to update both the list and dictionary when items are added or removed.
+- Use set operations to efficiently manage categories.
 
-Books in the library after returning:
-Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 1234567890, Available: True
-Title: 1984, Author: George Orwell, ISBN: 0987654321, Available: True
-Title: Python Programming, Author: John Doe, ISBN: 1122334455, Available: True, File Size: 1.5 MB
-Title: Data Science 101, Author: Jane Smith, ISBN: 5544332211, Available: True, File Size: 2.0 MB
-```
+### f. Additional Resources
+- [Python Official Documentation on Data Structures](https://docs.python.org/3/tutorial/datastructures.html)
+- [Real Python's Guide to Python Lists](https://realpython.com/python-lists-tuples/)
+- [W3Schools Python Dictionary Tutorial](https://www.w3schools.com/python/python_dictionaries.asp)
 
-## Hints or Tips for Completing the Task
-- Use the `__init__` method to initialize class attributes.
-- Remember to use `self` to refer to instance variables within class methods.
-- You can use list comprehensions to filter or manipulate lists of books.
-- Test each method individually to ensure they work as expected before integrating them into the main program.
-
-## Additional Resources
-- [Python Official Documentation on Classes](https://docs.python.org/3/tutorial/classes.html)
-- [Real Python: Object-Oriented Programming in Python](https://realpython.com/python3-object-oriented-programming/)
-- [W3Schools: Python Classes/Objects](https://www.w3schools.com/python/python_classes.asp)
-
-Good luck, and enjoy building your library management system!
+By completing this task, you will gain practical experience with Python's built-in data structures and understand how they can be used together to solve real-world problems.

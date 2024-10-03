@@ -1,87 +1,92 @@
-# Practice Task
+# Concept Explanations and Practice Task
 
-# Practice Task: Milestone 1 - Python Fundamentals
+# Introduction to Python: Practice Task
 
-## Introduction
-In this practice task, you will create a simple Python program that simulates a basic shopping cart system. This task will help you solidify your understanding of core Python concepts such as data types, control structures, and functions. By the end of this task, you will have a functional program that allows users to add items to their cart, view the cart, and calculate the total cost.
+## 1. Concept Explanations
 
-## Project Setup Instructions
+### Python Setup
+To start programming in Python, you need to have Python installed on your machine. The Python interpreter can be downloaded from [python.org](https://www.python.org/downloads/). Once installed, Python scripts can be executed in a terminal (command line) or through an integrated development environment (IDE) like PyCharm, VSCode, or Jupyter Notebook.
 
-1. **Create a New Project:**
-   - Open your preferred code editor or IDE (e.g., VSCode, PyCharm).
-   - Create a new folder for your project named `shopping_cart`.
+### Basic Syntax
+Python's syntax is designed to be readable and straightforward. Key points include:
 
-2. **Name the Main Python Script File:**
-   - Inside the `shopping_cart` folder, create a new Python file named `shopping_cart.py`.
+- **Indentation**: Python uses indentation to define code blocks instead of curly braces or keywords. Consistent indentation (usually 4 spaces) is crucial.
+- **Comments**: Use `#` for single-line comments and `'''` or `"""` for multi-line comments.
+  
+Example:
+```python
+# This is a single-line comment
 
-3. **Additional Files Needed:**
-   - No additional files are required for this task.
-
-## Detailed Requirements
-
-1. **Data Types and Variables:**
-   - Create a list to hold the items in the shopping cart.
-   - Each item should be represented as a dictionary with the following keys: `name`, `price`, and `quantity`.
-
-2. **Control Structures:**
-   - Implement a menu that allows the user to choose from the following options:
-     1. Add an item to the cart
-     2. View the cart
-     3. Calculate the total cost
-     4. Exit the program
-   - Use `if` statements to handle the user's choice and `while` loops to keep the program running until the user decides to exit.
-
-3. **Functions and Scope:**
-   - Create the following functions:
-     - `add_item(cart)`: Prompts the user for item details and adds the item to the cart.
-     - `view_cart(cart)`: Displays all items in the cart along with their quantities and prices.
-     - `calculate_total(cart)`: Calculates and returns the total cost of items in the cart.
-
-## Expected Output or Behavior
-
-- When the program runs, it should display a menu with options.
-- Based on the user's input, the program should allow them to add items, view the cart, or calculate the total cost.
-- The program should continue to run until the user selects the option to exit.
-
-Example interaction:
-```
-Welcome to the Shopping Cart!
-1. Add an item to the cart
-2. View the cart
-3. Calculate the total cost
-4. Exit
-Please choose an option: 1
-Enter item name: Apple
-Enter item price: 0.5
-Enter item quantity: 3
-Item added to cart!
-
-1. Add an item to the cart
-2. View the cart
-3. Calculate the total cost
-4. Exit
-Please choose an option: 2
-Your cart:
-- Apple: 3 x $0.5
-
-1. Add an item to the cart
-2. View the cart
-3. Calculate the total cost
-4. Exit
-Please choose an option: 3
-Total cost: $1.5
+def greet():
+    """This is a multi-line comment
+    explaining the greet function"""
+    print("Hello, World!")
 ```
 
-## Hints or Tips for Completing the Task
+### Variables and Data Types
+Python is dynamically typed, meaning you don't need to declare variable types. Basic data types include:
 
-- Use a `while True` loop to keep the menu running until the user chooses to exit.
-- Make sure to handle user input carefully, especially when converting prices and quantities to the appropriate data types.
-- Consider using a `try-except` block to handle potential errors when converting input values.
+- **Integers** (`int`): Whole numbers, e.g., `a = 5`
+- **Floating-point numbers** (`float`): Decimal numbers, e.g., `b = 3.14`
+- **Strings** (`str`): Text, e.g., `c = "Hello"`
+- **Booleans** (`bool`): True or False values, e.g., `d = True`
 
-## Additional Resources
+Example:
+```python
+name = "Alice"
+age = 30
+height = 5.5
+is_student = False
+```
 
-- [Python Official Documentation](https://docs.python.org/3/)
-- [W3Schools Python Tutorial](https://www.w3schools.com/python/)
-- [Real Python - Python Functions](https://realpython.com/defining-functions-in-python/)
+### Input and Output
+Python can read input from the user and display output to the console using the `input()` and `print()` functions, respectively.
 
-Good luck, and have fun coding your shopping cart program!
+Example:
+```python
+user_name = input("Enter your name: ")
+print("Hello, " + user_name)
+```
+
+### Real-World Application
+These concepts form the foundation for any Python program. You'll use variables and data types to store and manipulate data, and input/output functions to interact with users. Understanding basic syntax is essential to writing clear and error-free Python code.
+
+## 2. Practice Task
+
+### a. Introduction to the Task
+For this task, you'll create a simple program that asks the user for their name and age, then calculates and displays the year they will turn 100. This exercise will help you practice setting up a Python environment, understanding basic syntax, using variables, and handling input/output.
+
+### b. Step-by-Step Instructions
+
+#### Project Setup
+1. **Create a New Project**: Set up a new directory for your project.
+2. **Main Python Script File**: Create a file named `age_calculator.py` in your project directory.
+
+#### Additional Files
+- No additional files are needed for this task.
+
+### c. Detailed Requirements
+1. Prompt the user to enter their name.
+2. Ask the user to enter their current age.
+3. Calculate the year when the user will turn 100 years old.
+4. Print a message to the user with the calculated year.
+
+### d. Expected Output or Behavior
+When the user inputs their name and age, the program should output a message like:
+```
+Enter your name: Alice
+Enter your age: 30
+Hello Alice, you will turn 100 years old in the year 2093.
+```
+
+### e. Hints or Tips
+- Use the `input()` function to gather input from the user.
+- Remember that `input()` returns a string, so you'll need to convert the age to an integer using `int()`.
+- Use the current year to calculate the year the user will turn 100. You can hard-code the current year or use the `datetime` module to retrieve it dynamically.
+
+### f. Additional Resources
+- [Official Python Documentation](https://docs.python.org/3/)
+- [Python for Beginners](https://www.learnpython.org/)
+- [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/)
+
+By completing this task, you'll gain hands-on experience with Python's basic syntax, variables, and input/output operations, setting a solid foundation for more complex projects.

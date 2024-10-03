@@ -2,61 +2,55 @@
 
 ## Background
 
-This training plan is designed for an experienced programmer who is new to Python and has only basic knowledge of the language. The focus is on hands-on projects to solidify understanding of Python fundamentals and introduce commonly used third-party libraries. Each milestone builds on the previous one, ensuring a comprehensive learning experience that aligns with the user's goal of mastering Python.
+Given the user's experience as an experienced programmer but new to Python, the training plan is designed to leverage their existing programming knowledge, allowing them to quickly grasp Python's unique features and paradigms. The focus is on hands-on learning, using practical exercises and projects to reinforce the core syntax, data types, and control flow of Python. The plan emphasizes building small projects to solidify understanding, culminating in a command-line task tracker project that integrates various skills learned throughout the month. By prioritizing practical application over theoretical concepts, the user will develop the confidence to independently create simple applications by the end of the training period.
 
 ## Milestones
 
-### Milestone 1: Python Fundamentals
+### Introduction to Python
 
-**Objective:** Understand and apply core Python concepts and syntax.
-
-**Topics:**
-- Data Types and Variables
-- Control Structures (if, for, while)
-- Functions and Scope
-
-### Milestone 2: Data Structures and File Handling
-
-**Objective:** Learn to work with Python's built-in data structures and file operations.
+**Objective:** Understand Python's basic syntax and environment setup
 
 **Topics:**
-- Lists, Tuples, and Dictionaries
-- Sets and Comprehensions
-- Reading from and Writing to Files
+- Python setup
+- Basic syntax
+- Variables and data types
+- Input and output
 
-### Milestone 3: Object-Oriented Programming in Python
+### Control Flow and Functions
 
-**Objective:** Understand the principles of OOP and how to implement them in Python.
-
-**Topics:**
-- Classes and Objects
-- Inheritance and Polymorphism
-- Encapsulation and Abstraction
-
-### Milestone 4: Error Handling and Testing
-
-**Objective:** Learn to manage exceptions and write tests for your code.
+**Objective:** Learn to control the flow of programs and create reusable code with functions
 
 **Topics:**
-- Exception Handling (try, except)
-- Unit Testing with unittest
-- Debugging Techniques
+- Conditional statements
+- Loops
+- Functions
+- Scope and lifetime of variables
 
-### Milestone 5: Introduction to Third-Party Libraries
+### Data Structures
 
-**Objective:** Explore and utilize popular Python libraries for various tasks.
-
-**Topics:**
-- Using Requests for HTTP requests
-- Data Manipulation with Pandas
-- Data Visualization with Matplotlib
-
-### Milestone 6: Building a Complete Project
-
-**Objective:** Apply all learned concepts to build a complete Python project.
+**Objective:** Understand and utilize Python's built-in data structures
 
 **Topics:**
-- Project Planning and Design
-- Implementing Features with Python
-- Deploying and Sharing Your Project
+- Lists
+- Tuples
+- Dictionaries
+- Sets
+
+### File Handling and Modules
+
+**Objective:** Learn to read from and write to files, and use Python's standard libraries
+
+**Topics:**
+- File operations
+- Error handling
+- Modules and packages
+
+### Project: Command-Line Task Tracker
+
+**Objective:** Integrate learned skills to build a simple application
+
+**Topics:**
+- Project structure
+- Data persistence
+- Command-line arguments
 
