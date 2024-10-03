@@ -67,10 +67,11 @@ Preferred learning style: {user_info.learning_style}
 
 The plan should include several milestones with milestone names, objectives, and topics to cover. 
 Each milestone should be tailored to the user's experience level and learning style.
+Ensure that the background and milestones reflect the user's preferred learning style of "{user_info.learning_style}".
 Provide the response in the following JSON format:
 
 {{
-    "background": "A brief paragraph explaining the rationale behind the training plan based on the user's profile",
+    "background": "A brief paragraph explaining the rationale behind the training plan based on the user's profile, including their preferred learning style",
     "milestones": [
         {{
             "name": "Milestone name",
