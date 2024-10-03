@@ -11,6 +11,7 @@ The Python Trainer App is a command-line tool designed to create personalized Py
 3. **Pydantic**: Used for data validation and settings management using Python type annotations.
 4. **OpenAI API**: Leveraged to generate personalized training plans and practice tasks.
 5. **python-dotenv**: Used for managing environment variables.
+6. **JSON**: Used for structured data exchange between the application and the OpenAI API.
 
 ## Core Components
 
@@ -62,6 +63,8 @@ The Python Trainer App is a command-line tool designed to create personalized Py
    ```
    python -m python_trainer.main
    ```
+
+   Note: The application uses the GPT-4 model. Ensure that your OpenAI account has access to GPT-4.
 
 6. Follow the prompts to input your information and generate a personalized Python training plan.
 
