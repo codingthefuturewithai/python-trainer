@@ -31,17 +31,17 @@ def get_training_plan(prompt: str) -> TrainingPlan:
 
 def get_practice_task(prompt: str) -> str:
     """
-    Send a prompt to OpenAI GPT and get a practice task response.
+    Send a prompt to OpenAI GPT and get a practice task response with concept explanations.
 
     Args:
         prompt (str): The generated prompt for OpenAI GPT.
 
     Returns:
-        str: The generated practice task from OpenAI GPT.
+        str: The generated concept explanations and practice task from OpenAI GPT.
     """
     response = send_openai_request(prompt)
     # Ensure the response is properly formatted as Markdown
-    formatted_response = f"# Practice Task\n\n{response.strip()}"
+    formatted_response = f"# Concept Explanations and Practice Task\n\n{response.strip()}"
     return formatted_response
 
 def send_openai_request(prompt: str) -> str:
@@ -56,13 +56,13 @@ def send_openai_request(prompt: str) -> str:
     """
     try:
         response = openai.chat.completions.create(
-            model="gpt-4o-mini",  # Use a model that can handle larger context
+            model="gpt-4",  # Use GPT-4 for more comprehensive responses
             messages=[
-                {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans and practice tasks."},
+                {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans, explains programming concepts, and designs practice tasks."},
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.1,
-            max_tokens=2000,  # Increase max tokens to allow for longer responses
+            temperature=0.7,  # Slightly increase temperature for more creative explanations
+            max_tokens=3000,  # Increase max tokens to allow for longer responses including concept explanations
         )
         return response.choices[0].message.content.strip()
     except Exception as e:

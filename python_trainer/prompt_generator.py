@@ -26,18 +26,25 @@ def generate_task_prompt(milestone: dict, user_info: UserInfo, training_plan: Tr
     This milestone is part of the following training plan:
     {json.dumps(training_plan.dict(), indent=2)}
 
-    Please include the following in your response:
-    1. A brief introduction to the task
-    2. Step-by-step instructions on how to set up the project:
-       - Specify if a new project should be created
-       - Name the main Python script file
-       - List any additional files needed
-    3. Detailed requirements for the task
-    4. Expected output or behavior
-    5. Hints or tips for completing the task
-    6. Any additional resources that might be helpful
+    Please structure your response in the following format:
 
-    Format your response in Markdown.
+    1. Concept Explanations:
+       - Provide clear and concise explanations of the key concepts related to this milestone.
+       - Use examples to illustrate these concepts.
+       - Explain how these concepts are used in real-world Python programming.
+
+    2. Practice Task:
+       a. A brief introduction to the task
+       b. Step-by-step instructions on how to set up the project:
+          - Specify if a new project should be created
+          - Name the main Python script file
+          - List any additional files needed
+       c. Detailed requirements for the task
+       d. Expected output or behavior
+       e. Hints or tips for completing the task
+       f. Any additional resources that might be helpful
+
+    Format your response in Markdown, using appropriate headers and formatting for readability.
     """
 
 def generate_prompt(user_info: UserInfo) -> str:
