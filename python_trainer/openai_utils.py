@@ -13,7 +13,14 @@ dotenv_path = root_dir / '.env'
 load_dotenv(dotenv_path=dotenv_path)
 
 # Set up OpenAI client
-openai.api_key = os.getenv("OPENAI_API_KEY")
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.getenv("API_KEY"),
+    base_url=os.getenv("BASE_URL"),
+)
+
+model_name = os.getenv("MODEL_NAME")
 
 def get_training_plan(prompt: str) -> TrainingPlan:
     """
@@ -55,8 +62,11 @@ def send_openai_request(prompt: str) -> str:
         str: The response from OpenAI GPT.
     """
     try:
-        response = openai.chat.completions.create(
-            model="gpt-4o-mini",  # Use GPT-4 for more comprehensive responses
+        if model_name is None:
+            raise ValueError("Model name is not set. Please check your environment variables.")
+
+        response = client.chat.completions.create(
+            model=model_name,
             messages=[
                 {"role": "system", "content": "You are a helpful AI assistant that creates Python training plans, explains programming concepts, and designs practice tasks."},
                 {"role": "user", "content": prompt}
@@ -64,7 +74,11 @@ def send_openai_request(prompt: str) -> str:
             temperature=0.7,  # Slightly increase temperature for more creative explanations
             max_tokens=3000,  # Increase max tokens to allow for longer responses including concept explanations
         )
-        return response.choices[0].message.content.strip()
+
+        if response.choices and response.choices[0].message and response.choices[0].message.content:
+            return response.choices[0].message.content.strip()
+        else:
+            raise ValueError("Unexpected response format from OpenAI API")
     except Exception as e:
         raise Exception(f"Error: Unable to generate response from OpenAI. {str(e)}")
 
