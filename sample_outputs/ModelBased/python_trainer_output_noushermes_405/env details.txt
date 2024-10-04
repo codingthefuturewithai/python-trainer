@@ -1,0 +1,5 @@
+API_KEY=sk-**************************
+
+BASE_URL=https://openrouter.ai/api/v1/
+
+MODEL_NAME=nousresearch/hermes-3-llama-3.1-405b:free

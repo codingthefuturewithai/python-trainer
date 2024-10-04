@@ -1,0 +1,8 @@
+API_KEY=sk-**************************
+
+BASE_URL=https://openrouter.ai/api/v1/
+
+MODEL_NAME=qwen/qwen-2.5-72b-instruct
+
+
+Cost=0.005$
