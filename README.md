@@ -102,6 +102,31 @@ Here's an example of what a user session might look like:
 
 This sample session demonstrates the interactive nature of the app, showing how it prompts for user information, generates a training plan, and creates practice tasks based on the user's preferences.
 
+## Viewing Project Documentation and Sample Outputs
+
+To view the project documentation and sample outputs as web pages, you can use Python's built-in HTTP server. Follow these steps:
+
+1. Open a terminal and navigate to the project's root directory.
+
+2. Run the following command to start a local web server:
+   ```
+   python -m http.server 8080
+   ```
+
+3. Open a web browser and go to `http://localhost:8080`
+
+4. You'll see the Project Home Page with links to:
+   - Project Documentation
+   - Sample Outputs from various models
+
+5. Click on the links to navigate through the documentation and sample outputs.
+
+Here's what the Project Home Page looks like:
+
+![Project Home Page](images/project_home_page.png)
+
+This setup allows you to easily browse through the project documentation and sample outputs in a web-based format.
+
 ## Contributing
 
 Contributions to the Python Trainer App are welcome! Please feel free to submit a Pull Request.
