@@ -42,20 +42,29 @@ The Python Trainer App is a command-line tool designed to create personalized Py
    pip install -r requirements.txt
    ```
 
-4. Set up your OpenAI API key:
-   - If you don't have an OpenAI API key, follow these steps to obtain one:
-     1. Go to https://platform.openai.com/signup
-     2. Create an account or sign in if you already have one
-     3. Once logged in, go to https://platform.openai.com/account/api-keys
-     4. Click on "Create new secret key" to generate a new API key
-     5. Copy the generated API key (you won't be able to see it again)
+4. Set up your API key and model:
+   - This application can use any LLM that exposes the OpenAI API standard. You have two options:
+
+   a) If you want to use an OpenAI model (such as GPT-4o mini):
+     - If you don't have an OpenAI API key, follow these steps to obtain one:
+       1. Go to https://platform.openai.com/signup
+       2. Create an account or sign in if you already have one
+       3. Once logged in, go to https://platform.openai.com/account/api-keys
+       4. Click on "Create new secret key" to generate a new API key
+       5. Copy the generated API key (you won't be able to see it again)
+
+   b) If you want to use any other OpenAI API-compatible LLM:
+     - Obtain the API key and base URL for your chosen LLM service
+
    - Copy the `.env_example` file to create a new `.env` file in the project root directory:
      ```
      cp .env_example .env
      ```
-   - Open the `.env` file and replace `your_api_key_here` with your actual OpenAI API key:
+   - Open the `.env` file and update the following fields:
      ```
-     OPENAI_API_KEY=your_actual_api_key_here
+     API_KEY=your_actual_api_key_here
+     BASE_URL=https://api.openai.com/v1/  # Change this if using a different API
+     MODEL_NAME=gpt-4o-mini  # Change this to your desired model name
      ```
    - Keep your API key confidential and never share it publicly
 
