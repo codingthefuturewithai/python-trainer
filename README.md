@@ -121,9 +121,9 @@ To view the project documentation and sample outputs as web pages, you can use P
 
 5. Click on the links to navigate through the documentation and sample outputs.
 
-Here's what the Project Home Page looks like:
+Here's what the Project Docs Web Page looks like:
 
-![Project Home Page](images/project_home_page.png)
+![Project Docs Web Page](images/project_docs_main_web_page.png)
 
 This setup allows you to easily browse through the project documentation and sample outputs in a web-based format.
 
