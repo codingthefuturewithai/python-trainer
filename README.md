@@ -43,7 +43,7 @@ The Python Trainer App is a command-line tool designed to create personalized Py
    ```
 
 4. Set up your API key and model:
-   - This application can use any LLM that exposes the OpenAI API standard. However, please note that to date, this app has only been tested with GPT-4o and GPT-4o mini. You have two options:
+   - This application can use any LLM that exposes the OpenAI API standard. However, please note that to date, this app has only been thoroughly tested with GPT-4o and GPT-4o mini. You have two options:
 
    a) If you want to use an OpenAI model (GPT-4o or GPT-4o mini):
      - If you don't have an OpenAI API key, follow these steps to obtain one:
