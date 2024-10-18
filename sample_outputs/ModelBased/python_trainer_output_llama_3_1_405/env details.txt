@@ -1,0 +1,5 @@
+API_KEY=sk-**************************
+
+BASE_URL=https://openrouter.ai/api/v1/
+
+MODEL_NAME=meta-llama/llama-3.1-405b-instruct:free
