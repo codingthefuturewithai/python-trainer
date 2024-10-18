@@ -52,20 +52,30 @@ The Python Trainer App is a command-line tool designed to create personalized Py
        3. Once logged in, go to https://platform.openai.com/account/api-keys
        4. Click on "Create new secret key" to generate a new API key
        5. Copy the generated API key (you won't be able to see it again)
+     - Copy the `.env_example` file to create a new `.env` file in the project root directory:
+       ```
+       cp .env_example .env
+       ```
+     - Open the `.env` file and update the following fields:
+       ```
+       API_KEY=your_actual_openai_api_key_here
+       BASE_URL=https://api.openai.com/v1/
+       MODEL_NAME=gpt-4o-mini  # or your chosen OpenAI model
+       ```
 
    b) If you want to use any other OpenAI API-compatible LLM:
      - Obtain the API key and base URL for your chosen LLM service
+     - Copy the `.env_example` file to create a new `.env` file in the project root directory:
+       ```
+       cp .env_example .env
+       ```
+     - Open the `.env` file and update the following fields:
+       ```
+       API_KEY=your_actual_api_key_here
+       BASE_URL=your_llm_service_base_url_here
+       MODEL_NAME=your_chosen_model_name
+       ```
 
-   - Copy the `.env_example` file to create a new `.env` file in the project root directory:
-     ```
-     cp .env_example .env
-     ```
-   - Open the `.env` file and update the following fields:
-     ```
-     API_KEY=your_actual_api_key_here
-     BASE_URL=https://api.openai.com/v1/  # Change this if using a different API
-     MODEL_NAME=gpt-4o-mini  # Change this to your desired model name
-     ```
    - Keep your API key confidential and never share it publicly
 
 5. Run the application:
